@@ -42,6 +42,7 @@ struct Customer
     double savingsBalance;
     double checkingBalance;
 
+    // Parameterized Constructor.
     Customer(std::string customerName, int customerId)
         : name(customerName), id(customerId), savingsBalance(0), checkingBalance(0) {}
 };
