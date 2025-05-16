@@ -17,6 +17,21 @@ ________________________________________________________________________________
 // Include libraries.
 #include <iostream>
 
+// Prototype.
+int Find_GCF(int &x, int &y);
+
+// Entry point.
+int main()
+{
+    int x, y;
+    std::cout << "Please Enter 2 Values:\n";
+    std::cin >> x >> y;
+    std::cout << "GCF=\t" << Find_GCF(x, y) << std::endl;
+
+    return 0;
+}
+
+// Implementation.
 int Find_GCF(int &x, int &y)
 {
     // Check if 0 or -ve numbers.
@@ -56,14 +71,4 @@ int Find_GCF(int &x, int &y)
             }
         }
     }
-}
-
-// Entry point.
-int main()
-{
-    int x, y, GCF;
-    std::cin >> x >> y;
-    std::cout << "GCF=\t" << Find_GCF(x, y) << std::endl;
-
-    return 0;
 }
