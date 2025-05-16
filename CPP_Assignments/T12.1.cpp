@@ -1,33 +1,40 @@
 
 /*________________________________________________________________________________________________________
 
-    Task(7.7): Extra Prefix sum:
-    ----------------------------
-
-        You are given an array of N integers.
-        You have to answer Q queries.
-        Each query contains two integers L and R
-        For each query print the sum of integers in array from index L to R
-        
-        Input :
-            First line will contain an integer T (number of test cases).
-            T blocks of line follows.
-            First line of each block contains an integer N (number of array elements).
-            Next line contains N integers (array elements).
-            Next line contains an integer Q (number of queries).
-            Next Q lines contain two integers L and R
-        
-        HINT:
-            use prefix sum array.
-    
-        Sample Input :
-            2 4 10 20 30
-            40 2 1 4 2 3 5
-            1 1 1 1 1 3 1 2
-            2 5 5 5
-        
-        Sample Output:
-            100 50 2 4 1
+    Task(12.1): Hackerrank problem: University Management System:
+    -----------------------------------------------------------
+    •○□
+    Requirements:
+        1.  Base Class - Person:
+            ○   The class Person will be an abstract class (cannot be instantiated directly) with the following:
+                •   Two pure virtual functions:
+                    □   getdata(): for inputting data.
+                    □   putdata(): for displaying data.
+                •   Two data members:
+                    □   name: a string representing the name of the person.
+                    □   age: an integer representing the age of the person.
+        2.  Derived Class - Professor:
+            ○   Inherits from the Person class.
+            ○   Additional data members:
+                •   publications: an integer representing the number of publications.
+                •   curr_id: a unique identifier for the professor. It is a static integer that
+                    increments each time a new professor is created.
+            ○   Overrides the getdata() and putdata() methods:
+                •   getdata() should input the name, age, and number of publications.
+                •   putdata() should display the name, age, publications, and current professor ID.
+                
+        3.  Derived Class - Student:
+            ○   Inherits from the Person class.
+            ○   Additional data members:
+                •   marks[6]: an array of six integers representing the marks of the student.
+                •   curr_id: a unique identifier for the student. It is a static integer that
+                    increments each time a new student is created.
+            ○   Overrides the getdata() and putdata() methods:
+                •   getdata() should input the name, age, and six marks.
+                •   putdata() should display the name, age, the sum of the six marks, and current student ID.
+ 
+-   Hackerrank URL to submit the solution:
+    https://www.hackerrank.com/challenges/virtual-functions/problem?isFullScreen=true
 ___________________________________________________________________________________________________________*/
 
 /*  -------------------------------------------------------------------

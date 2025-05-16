@@ -1,33 +1,42 @@
 
 /*________________________________________________________________________________________________________
 
-    Task(7.7): Extra Prefix sum:
-    ----------------------------
-
-        You are given an array of N integers.
-        You have to answer Q queries.
-        Each query contains two integers L and R
-        For each query print the sum of integers in array from index L to R
-        
-        Input :
-            First line will contain an integer T (number of test cases).
-            T blocks of line follows.
-            First line of each block contains an integer N (number of array elements).
-            Next line contains N integers (array elements).
-            Next line contains an integer Q (number of queries).
-            Next Q lines contain two integers L and R
-        
-        HINT:
-            use prefix sum array.
+    Task(10.1): Inventory management:
+    ---------------------------------
+         
+    In this task, you will implement a simple inventory management system using C++
+    structs, vectors, and lambda functions. The system keeps track of items in an
+    inventory, including their name, price, and quantity. The focus of this task is on using
+    lambda expressions to update the inventory and perform calculations dynamically.
     
-        Sample Input :
-            2 4 10 20 30
-            40 2 1 4 2 3 5
-            1 1 1 1 1 3 1 2
-            2 5 5 5
-        
-        Sample Output:
-            100 50 2 4 1
+    Key Features to Implement:
+        1.  Struct Definition for Items:    
+            ○   Define a struct called Item to represent an item in the inventory. The Item
+                should have the following attributes:
+                •   name (std::string): The name of the item.
+                •   price (float): The price of the item.
+                •   quantity (int): The quantity of the item available in stock.
+        2.  Create an Inventory:
+            ○   Create a std::vector to store multiple Item objects, representing the
+                inventory of a store. Initialize it with a few sample items such as "Laptop,"
+                "Smartphone," and "Tablet," each with a specific price and quantity.
+        3.  Lambda Functions:
+            ○   Update Item Price: Write a lambda function updatePrice that captures the
+                inventory by reference (&inventory). It takes an item's name and a new
+                price as input, and updates the price of the specified item.
+            ○   Check Stock Availability: Create a lambda function isOutOfStock that
+                captures the inventory by value. This function takes an item's name as input
+                and returns a boolean indicating whether the item is out of stock (i.e.,
+                quantity = 0).
+            ○   Calculate Total Inventory Value: Implement a lambda calculateTotalValue
+                that captures the inventory by reference. This function computes and
+                returns the total value of the inventory, which is the sum of all items' prices
+                multiplied by their quantities.
+        4.  Main Program:
+            ○   Demonstrate the use of these lambdas by:
+                •   Updating the price of an item (e.g., "Smartphone").
+                •   Checking if an item (e.g., "Laptop") is out of stock.
+                •   Calculating the total value of the inventory
 ___________________________________________________________________________________________________________*/
 
 /*  -------------------------------------------------------------------
