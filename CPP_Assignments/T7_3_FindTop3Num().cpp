@@ -23,10 +23,11 @@
    =====================================================================================
    
    Recommendations:
-   - If the vector is **small**, sorting (`sort()` then picking top 3) works fine.
-   - If the vector is **large**, prefer **linear scan** (`O(n) approach`).
-   - If processing **real-time/streaming data**, use **Min-Heap (`priority_queue`)**.
+        - If the vector is **small**, sorting (`sort()` then picking top 3) works fine.
+        - If the vector is **large**, prefer **linear scan** (`O(n) approach`).
+        - If processing **real-time/streaming data**, use **Min-Heap (`priority_queue`)**.
     
+   ___________________________________________________________________________________________________________
 */
 
 /*  -------------------------------------------------------------------
