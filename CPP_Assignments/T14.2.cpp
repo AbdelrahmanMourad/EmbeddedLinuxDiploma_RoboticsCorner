@@ -1,33 +1,19 @@
 
 /*________________________________________________________________________________________________________
 
-    Task(7.7): Extra Prefix sum:
-    ----------------------------
+    Task(14.2):  Template functions:
+    --------------------------------
 
-        You are given an array of N integers.
-        You have to answer Q queries.
-        Each query contains two integers L and R
-        For each query print the sum of integers in array from index L to R
-        
-        Input :
-            First line will contain an integer T (number of test cases).
-            T blocks of line follows.
-            First line of each block contains an integer N (number of array elements).
-            Next line contains N integers (array elements).
-            Next line contains an integer Q (number of queries).
-            Next Q lines contain two integers L and R
-        
-        HINT:
-            use prefix sum array.
-    
-        Sample Input :
-            2 4 10 20 30
-            40 2 1 4 2 3 5
-            1 1 1 1 1 3 1 2
-            2 5 5 5
-        
-        Sample Output:
-            100 50 2 4 1
+    1.  Create template functions for max and swap and apply on fundamental
+        data types such as int and double also apply on user defined data types
+        (create a Person class and overload the necessary operators).
+    2.  Create Person class that overloads the operator of > and = this class
+        have the following attributes (name, age), we are comparing the age in
+        the in > operator while comparing both the name and the age in the =
+        operator functions, also create a copy constructor and a normal
+        constructor with parameters.
+    3.  Use Person class in the main as a datatype for using the max and swap
+        functions.
 ___________________________________________________________________________________________________________*/
 
 /*  -------------------------------------------------------------------

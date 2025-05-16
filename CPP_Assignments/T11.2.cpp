@@ -1,8 +1,7 @@
 
-/*________________________________________________________________________________________________________
-
+/*  =======================================================================================================
     Task(11.2):
-    ○○○○○○○○○○○
+    ===========
 
     1.  Abstract Class: LibraryItem
         ○   This is the base class representing a generic library item. It defines the following pure virtual methods,
@@ -40,7 +39,9 @@
         ○   A user can borrow available items, and if an item is already borrowed, the system provides an appropriate message.
         ○   Items can be returned, updating their availability status.
         ○   Finally, the dynamically allocated memory for the library items is cleaned up to prevent memory leaks
-___________________________________________________________________________________________________________*/
+    
+    ======================================================================================================
+*/
 
 /*  •••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••••
                     Included Libraries.

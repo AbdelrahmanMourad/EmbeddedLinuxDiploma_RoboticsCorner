@@ -10,8 +10,7 @@
     PayPal, using a common base class for shared functionality. The key objective is to
     demonstrate how derived classes can extend and specialize behavior defined in a
     base class by overriding methods.
-○
-•
+
     Key Requirements:
         1.  Base Class: PaymentMethod:
             ○   Define a base class PaymentMethod to represent a general payment
