@@ -58,7 +58,7 @@ void loadFromFile(Student &student, const std::string &filename);     // Functio
 int main()
 {
     Student student;                       // Create object instance
-    std::string filename = "students.txt"; // Define filename
+    std::string filename = "students.txt"; // Define filename ("path/filename.txt")
 
     // Get student details
     getStudentInfo(student);
@@ -114,7 +114,7 @@ void saveToFile(const Student &student, const std::string &filename)
 // Function to read student data from a file
 void loadFromFile(Student &student, const std::string &filename)
 {
-    std::ifstream inFile(filename); // Open file for reading
+    std::ifstream inFile(filename);     // Open file for reading
     if (inFile)
     {                                   // Check if file opened successfully
         getline(inFile, student.name);  // Read name from file

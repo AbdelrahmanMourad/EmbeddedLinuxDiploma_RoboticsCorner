@@ -53,7 +53,7 @@ void calculateByArrayReference(int (&arr)[ARRAY_SIZE]);
 void calculateByArrayConstReference(const int (&arr)[ARRAY_SIZE]);
 
 // __Array_UnknwonSize__
-// Function 1.1: Pass array **by value**
+// Function 1.1: Pass array **by pointer**
 void calculateByArrayValue_UnknwonSize(int arr[], int size);
 // Function 1.2: Pass array **by pointer**
 void calculateByArrayPointer_UnknwonSize(int *arr, int size);

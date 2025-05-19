@@ -164,7 +164,7 @@ EngineRPM::EngineRPM(int value) : rpm_{new int{value}}
 }
 
 // Copy Constructor (Deep Copy)
-EngineRPM::EngineRPM(const EngineRPM &other) : rpm_{new int{*other.rpm}}
+EngineRPM::EngineRPM(const EngineRPM &other) : rpm_{new int{*other.rpm_}}
 {
     std::cout << "Copy Constructor: RPM copied, value = " << *rpm_ << "\n";
 }

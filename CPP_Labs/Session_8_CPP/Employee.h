@@ -2,8 +2,6 @@
 // struct is public by default.
 /*-------------------Class Declaration-------------------*/
 
-
-
 class Employee
 {
 public:
@@ -12,13 +10,22 @@ public:
      */
     // default constructor {1}
     Employee();
-
-    // Parameterized constructor {2}
+    Employee(int id, int age);
+    Employee(int id, int age, std::string name);
     Employee(int id, int age, const int salary, std::string name);
+    ~Employee();
     // Copy Constructor {3}
     // Move Constructor {4}
     // Delegate Constructor {5}
 
+    Employee::Employee();
+    // Employee::Employee() /*Constructor Initializers....*/// : id{-1}, name{"Unknown"}, age{60}, salary{0}
+    // {
+    //     PrintSeparator();
+    //     std::cout << "default constructor\n";
+    //     PrintSeparator();
+    // }
+    // Parameterized constructor (2)
 
     // _________________Print Methods_________________
     void hire();
