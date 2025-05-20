@@ -1,68 +1,53 @@
-/** ==============================================================================================
-     ✅ Task 02: Overload Operators for Embedded Logic Simulation
-     =============================================================
-
-     🔁 Operators to Overload:
-        - Operator +  → Combine two RPM readings (e.g., average of two sensors)
-        - Operator == → Compare two RPM values
-        - Operator != → Check if two RPM readings differ
-        - Operator ()  → Return the RPM value from the object
-        - Operator <<  → Output RPM to std::cout
+/** ______________________________________________________________________________________________
+    
+    ✅ Task 02: Overload Operators for Embedded Logic Simulation:
+    -------------------------------------------------------------
+        🔁 Operators to Overload:
+            - Operator +  → Combine two RPM readings (e.g., average of two sensors)
+            - Operator == → Compare two RPM values
+            - Operator != → Check if two RPM readings differ
+            - Operator ()  → Return the RPM value from the object
+            - Operator <<  → Output RPM to std::cout
 
      📌 Example Usage:
+            EngineRPM sensor1(3000);
+            EngineRPM sensor2(3200);
+            EngineRPM average = sensor1 + sensor2;
+
+            std::cout << "Average RPM: " << average << "\n";
+
+            if (sensor1 != sensor2) {
+                std::cout << "RPM mismatch detected\n";
+            }
+    ______________________________________________________________________________________________
+    ✅  Task 02 : Overload Operators for Embedded Logic Simulation
+    🔁 Operator to Overload
+        "+"     --> Purpose -->     Combine two RPM readings (e.g., average of two sensors)
+        "=="    --> Purpose -->     Compare two RPM values
+        "!="    --> Purpose -->     Check if two readings differ
+        "()"    --> Purpose -->     Return the RPM value from the object
+        "<<"    --> Purpose -->     Output the RPM to std::cout
+    ex.
         EngineRPM sensor1(3000);
         EngineRPM sensor2(3200);
         EngineRPM average = sensor1 + sensor2;
 
-         std::cout << "Average RPM: " << average << "\n";
+        std::cout << "Average RPM: " << average << "\n";
 
         if (sensor1 != sensor2) {
             std::cout << "RPM mismatch detected\n";
         }
-
-    ----------------------------------------------------------------------------------------------
-
-    ✅  Task 02 : Overload Operators for Embedded Logic Simulation
-    🔁 Operator to Overload
-
-    Operator +
-    Purpose --> Combine two RPM readings (e.g., average of two sensors)
-
-    ==
-    Compare two RPM values
-
-    !=
-    Check if two readings differ
-
-    ()
-    Return the RPM value from the object
-
-    <<
-    Output the RPM to std::cout
-
-
-    ex.
-    EngineRPM sensor1(3000);
-    EngineRPM sensor2(3200);
-    EngineRPM average = sensor1 + sensor2;
-
-    std::cout << "Average RPM: " << average << "\n";
-
-    if (sensor1 != sensor2) {
-        std::cout << "RPM mismatch detected\n";
-    }
-
-    ==============================================================================================
+    ______________________________________________________________________________________________
 **/
 
-/*  -----------------------------------------------------------------
-                            Included Libraries
-    -----------------------------------------------------------------*/
+/*  =====================================================================================
+                                Included Libraries
+    =====================================================================================   */
 #include <iostream>
 
-/*  -----------------------------------------------------------------
-                            Prototypes
-    -----------------------------------------------------------------*/
+/*  =====================================================================================
+                                Prototypes
+    =====================================================================================   */
 class EngineRPM
 {
 private:
@@ -85,9 +70,10 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const EngineRPM &obj);
 };
 
-/*  -----------------------------------------------------------------
-                            Entry Point
-    -----------------------------------------------------------------*/
+
+/*  =====================================================================================
+                                Entry Point
+    =====================================================================================   */
 int main()
 {
     EngineRPM sensor1{3000};               // Parameterized constructor
@@ -105,9 +91,10 @@ int main()
 
     return 0;
 }
-/*  -----------------------------------------------------------------
-                            Implementation
-    -----------------------------------------------------------------*/
+
+/*  =====================================================================================
+                            Implementation - Methods
+    =====================================================================================   */
 // Default Constructor (Initializes RPM to 0)
 EngineRPM::EngineRPM() : rpm_{new int{0}}
 {
@@ -126,6 +113,9 @@ EngineRPM::EngineRPM(const EngineRPM &other) : rpm_{new int{*other.rpm_}}
     std::cout << "Copy Constructor: RPM copied, value = " << *rpm_ << "\n";
 }
 
+/*  =====================================================================================
+                            Implementation - Operators Overloading
+    =====================================================================================   */
 // Copy Assignment Operator (Deep Copy)
 EngineRPM &EngineRPM::operator=(const EngineRPM &other)
 {
