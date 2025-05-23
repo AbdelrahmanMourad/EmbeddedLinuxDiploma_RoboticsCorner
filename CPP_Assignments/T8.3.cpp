@@ -1,34 +1,26 @@
 
-/*________________________________________________________________________________________________________
 
-    Task(7.7): Extra Prefix sum:
-    ----------------------------
+/*  =====================================================================================================
+    Task(8.3):
+    ==========
 
-        You are given an array of N integers.
-        You have to answer Q queries.
-        Each query contains two integers L and R
-        For each query print the sum of integers in array from index L to R
-        
-        Input :
-            First line will contain an integer T (number of test cases).
-            T blocks of line follows.
-            First line of each block contains an integer N (number of array elements).
-            Next line contains N integers (array elements).
-            Next line contains an integer Q (number of queries).
-            Next Q lines contain two integers L and R
-        
-        HINT:
-            use prefix sum array.
-    
-        Sample Input :
-            2 4 10 20 30
-            40 2 1 4 2 3 5
-            1 1 1 1 1 3 1 2
-            2 5 5 5
-        
-        Sample Output:
-            100 50 2 4 1
-___________________________________________________________________________________________________________*/
+        Requirements:
+            -   Write a program that defines an array of integers.
+            -   Sort the array in a descending order using the "std::sort" function and a user-provided lambda 
+                function as a predicate. 
+            -   Let the user enter the number of elements followed by the elements of the array.
+
+        Example:
+            Input:
+                Enter the size of the array: 5
+                Enter 5 elements: 10 80 -7 90 -60
+            Output:
+                Original array: 10 80 -7 90 -60
+                Sorted array in descending order: 90 80 10 -7 -60
+
+    =====================================================================================================
+*/
+
 
 /*  -------------------------------------------------------------------
                     Included Libraries.
@@ -62,3 +54,47 @@ int main()
 
 
 
+// ==================== Task 8.1 ====================
+// Implement a C++ program that defines two functions 
+// to perform addition and subtraction of two numbers. 
+// Then, use function pointers to allow the user to 
+// choose which operation to perform.
+// Example:
+// Input:
+// Choose operation (+, -): +
+// Enter The first number: 50
+// Enter The second number: 70
+// Output:
+// The result = 120
+
+// ==================================================
+
+
+// ==================== Task 8.2 ====================
+Write a C++ program to sort an array of integers 
+in ascending order using function pointers. 
+Allow the user to choose between different sorting 
+algorithms (e.g., bubble sort, selection sort) 
+using function pointers.
+Example:
+Input:
+Enter the number of elements: 5
+Enter 5 integers: 50 70 80 -7 10
+Choose a sorting algorithm:
+1. Bubble Sort
+2. Selection Sort
+Enter your choice (1 or 2): 1
+Output:
+Sorted array: -7 10 50 70 80
+
+// ==================================================
+
+
+// ==================== Task 8.3 ====================
+
+// ==================================================
+
+
+// ==================== Task 8.4 ====================
+
+// ==================================================

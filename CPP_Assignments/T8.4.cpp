@@ -1,34 +1,37 @@
 
-/*________________________________________________________________________________________________________
+/*  =====================================================================================================
+    Task(8.4): Modify a Variable Captured by Lambda Expression:
+    ===========================================================
 
-    Task(7.7): Extra Prefix sum:
-    ----------------------------
+        Objective: 
+            Understand variable capturing in lambda expressions and how to modify captured variables.
 
-        You are given an array of N integers.
-        You have to answer Q queries.
-        Each query contains two integers L and R
-        For each query print the sum of integers in array from index L to R
-        
-        Input :
-            First line will contain an integer T (number of test cases).
-            T blocks of line follows.
-            First line of each block contains an integer N (number of array elements).
-            Next line contains N integers (array elements).
-            Next line contains an integer Q (number of queries).
-            Next Q lines contain two integers L and R
-        
-        HINT:
-            use prefix sum array.
-    
-        Sample Input :
-            2 4 10 20 30
-            40 2 1 4 2 3 5
-            1 1 1 1 1 3 1 2
-            2 5 5 5
-        
-        Sample Output:
-            100 50 2 4 1
-___________________________________________________________________________________________________________*/
+        Instructions:
+            1. Create a Lambda Expression:
+                - Define a variable num in the main function and initialize it with a value.
+                - Create a lambda expression that captures this variable by value.
+            2. Attempt to Modify the Captured Variable:
+                - Inside the lambda expression, add a line that attempts to change the value of the captured variable.
+            3. Observe the Compilation Error:
+                - Compile and run your code. You should see a compilation error indicating that you are 
+                    trying to assign a value to a read-only variable.
+            4. Fix the Compilation Error:
+                - Modify the lambda expression to capture the variable by reference instead of by value.
+                - Ensure that the lambda can now modify the captured variable.
+            5. Verify the Changes:
+                - Print the value of the variable inside and outside the lambda to confirm that the 
+                    modification is successful.
+
+        Explanation:
+            - When a variable is captured by value, it is essentially a copy of the original variable. 
+            - Inside the lambda, this copy is treated as a constant in terms of modification. You are only 
+                modifying the copy, not the original variable.
+            - Error Cause:
+                - If you try to modify this copy, the lambda's internal representation treats the copy as const 
+                    to prevent modification.
+                - This is why you get a compilation error: assignment of read-only variable.
+    =====================================================================================================
+*/
 
 /*  -------------------------------------------------------------------
                     Included Libraries.

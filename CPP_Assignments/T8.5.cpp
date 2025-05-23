@@ -1,33 +1,25 @@
 
 /*________________________________________________________________________________________________________
 
-    Task(7.7): Extra Prefix sum:
-    ----------------------------
+    Task(8.5): Lambda Expressions and Function Pointers:
+    ----------------------------------------------------
 
-        You are given an array of N integers.
-        You have to answer Q queries.
-        Each query contains two integers L and R
-        For each query print the sum of integers in array from index L to R
+        Objective: 
+            Understand the limitations of converting lambda expressions to function pointers, particularly 
+            when lambdas capture variables.
         
-        Input :
-            First line will contain an integer T (number of test cases).
-            T blocks of line follows.
-            First line of each block contains an integer N (number of array elements).
-            Next line contains N integers (array elements).
-            Next line contains an integer Q (number of queries).
-            Next Q lines contain two integers L and R
-        
-        HINT:
-            use prefix sum array.
-    
-        Sample Input :
-            2 4 10 20 30
-            40 2 1 4 2 3 5
-            1 1 1 1 1 3 1 2
-            2 5 5 5
-        
-        Sample Output:
-            100 50 2 4 1
+        Instructions:
+            1. Define Two Lambdas:
+                - Lambda 1:
+                    - Define a lambda that does not capture any variables and takes a parameter.
+                    - This lambda should simply print the value of the parameter.
+                - Lambda 2:
+                    - Define a lambda that captures a variable from its surrounding scope.
+                    - This lambda should print the value of the captured variable and take a parameter.
+            2. Create Function Pointers:
+                - Attempt to create function pointers for both lambdas.
+                - Observe the compilation errors when attempting to create a function pointer for the lambda 
+                    that captures a variable.
 ___________________________________________________________________________________________________________*/
 
 /*  -------------------------------------------------------------------
