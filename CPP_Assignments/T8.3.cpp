@@ -6,8 +6,8 @@
 
         Requirements:
             -   Write a program that defines an array of integers.
-            -   Sort the array in a descending order using the "std::sort" function and a user-provided lambda 
-                function as a predicate. 
+            -   Sort the array in a descending order using the "std::sort" function and a user-provided lambda
+                function as a predicate.
             -   Let the user enter the number of elements followed by the elements of the array.
 
         Example:
@@ -21,80 +21,49 @@
     =====================================================================================================
 */
 
-
 /*  -------------------------------------------------------------------
                     Included Libraries.
     ------------------------------------------------------------------- */
 #include <iostream>
-
-/*  -------------------------------------------------------------------
-                        Functions Prototype
-    ------------------------------------------------------------------- */
-
+#include <algorithm> // For std::sort
 
 /*  -------------------------------------------------------------------
                         Entry Point
     ------------------------------------------------------------------- */
 int main()
 {
+    int n;                                        // Number of Elements {Array Size}.
+    std::cout << "Enter the size of the array: "; //  Msg.
+    std::cin >> n;                                // Get value from user.
 
+    int *arr = new int[n];
+
+    std::cout << "Enter " << n << " elements: ";
+    for (int i = 0; i < n; ++i)
+        std::cin >> arr[i];
+
+    // Print original array
+    std::cout << "Original array: ";
+    for (int i = 0; i < n; ++i)
+        std::cout << arr[i] << " ";
+    std::cout << std::endl;
+
+    // Sort in descending order using std::sort and a lambda predicate
+    std::sort(arr, arr + n, [](int a, int b)
+              {
+                  return a > b; // Descending order
+              });
+
+    // Print sorted array
+    std::cout << "Sorted array in descending order: ";
+    for (int i = 0; i < n; ++i)
+        std::cout << arr[i] << " ";
+    std::cout << std::endl;
+
+    delete[] arr;
     return 0;
 }
 
 /*  -------------------------------------------------------------------
                         Functions implementation
     ------------------------------------------------------------------- */
-
-
-
-
-
-
-
-
-
-
-// ==================== Task 8.1 ====================
-// Implement a C++ program that defines two functions 
-// to perform addition and subtraction of two numbers. 
-// Then, use function pointers to allow the user to 
-// choose which operation to perform.
-// Example:
-// Input:
-// Choose operation (+, -): +
-// Enter The first number: 50
-// Enter The second number: 70
-// Output:
-// The result = 120
-
-// ==================================================
-
-
-// ==================== Task 8.2 ====================
-Write a C++ program to sort an array of integers 
-in ascending order using function pointers. 
-Allow the user to choose between different sorting 
-algorithms (e.g., bubble sort, selection sort) 
-using function pointers.
-Example:
-Input:
-Enter the number of elements: 5
-Enter 5 integers: 50 70 80 -7 10
-Choose a sorting algorithm:
-1. Bubble Sort
-2. Selection Sort
-Enter your choice (1 or 2): 1
-Output:
-Sorted array: -7 10 50 70 80
-
-// ==================================================
-
-
-// ==================== Task 8.3 ====================
-
-// ==================================================
-
-
-// ==================== Task 8.4 ====================
-
-// ==================================================
