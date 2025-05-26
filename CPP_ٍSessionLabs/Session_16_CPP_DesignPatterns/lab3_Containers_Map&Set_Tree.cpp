@@ -13,7 +13,7 @@ int main()
 {
 
     set<int> numbers = {1,100,10,70,100};
-    multiset<int> multi_numbers
+    multiset<int> multi_numbers;
 
 
 
