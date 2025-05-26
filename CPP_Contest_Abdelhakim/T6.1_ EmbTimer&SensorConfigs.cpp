@@ -76,10 +76,7 @@ constexpr float scale_sensor(float value, float factor)
 template <typename T>
 constexpr bool is_above_threshold(T value, T threshold)
 {
-    if constexpr (std::is_floating_point<T>::value)
-        return value > threshold;
-    else
-        return value > threshold;
+    return value > threshold;
 }
 
 /*  =====================================================================================
