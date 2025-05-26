@@ -12,7 +12,8 @@ using namespace std;
 int main()
 {
 
-    set<int numbers = {1,100,10,70,100};
+    set<int> numbers = {1,100,10,70,100};
+    multiset<int> multi_numbers
 
 
 
