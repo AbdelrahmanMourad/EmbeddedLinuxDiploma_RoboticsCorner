@@ -188,9 +188,13 @@ int main()
     // 6. Bonus: Variadic template logger
     log_sensor_values(1, 2.5, "OK", 42);
 
-    // 7. Bonus: [[nodiscard]] attribute and inline namespace
-    [[nodiscard]] auto get_sensor_id() -> int { return 123; }
-    int sid = get_sensor_id(); // Compiler warns if result is unused
+    // // 7. Bonus: [[nodiscard]] attribute and inline namespace (C++17)
+    // [[nodiscard]] auto get_sensor_id() -> int { return 123; }
+    // int sid = get_sensor_id(); // Compiler warns if result is unused
+    // C++14 Modification for Compiler.
+    // Place this at global scope, before main()
+    // [[nodiscard]] int get_sensor_id(); // Function prototype with nodiscard attribute
+    int sid = get_sensor_id(); // No compiler warning if result is unused in C++14
 
     // Inline namespace demonstration (for versioning, not strictly needed here) (Not working in C++14)
     // namespace v1
@@ -204,6 +208,7 @@ int main()
 
     return 0;
 }
+int get_sensor_id() { return 123; }
 /*  =====================================================================================
     README / Documentation for Beginners
 
