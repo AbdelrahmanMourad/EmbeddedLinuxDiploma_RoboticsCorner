@@ -49,10 +49,13 @@ int main()
     std::cout << std::endl;
 
     // Sort in descending order using std::sort and a lambda predicate
+    // Valid only if static array =>
+    // std::sort(arr.begin(),arr.end(),[](int a,int b){return a>b;});
+    // Equivalent Forms =>
+    // std::sort(arr[0],arr[n-1], [](int a, int b){return a>b;});
+    // std::sort(arr[0],arr[sizeof(arr)-1], [](int a, int b){return a>b;});
     std::sort(arr, arr + n, [](int a, int b)
-              {
-                  return a > b; // Descending order
-              });
+              {return a > b; /*Descending order*/ });
 
     // Print sorted array
     std::cout << "Sorted array in descending order: ";
