@@ -20,15 +20,6 @@ namespace Calculator_Namespace
 
     class Calculator_Class
     {
-    public:
-        void Welcome_Msg(void);
-        double Add(double a, double b);
-        double Sub(double a, double b);
-        double Div(double a, double b);
-        double Multiply(double a, double b);
-        double Rem(double a, double b);
-        void PrintOperation();
-
     private:
         // Private Member Variables.
         // No private member variables needed for this simple calculator.
