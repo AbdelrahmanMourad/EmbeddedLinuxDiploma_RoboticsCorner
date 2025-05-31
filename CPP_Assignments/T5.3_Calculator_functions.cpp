@@ -23,9 +23,8 @@ void Calculator_Namespace::Calculator_Class::TakeUserInputs_Operation(void)
     std::cout << "Please enter two numbers:\n";
     std::cin >> first_num_ >> second_num_;
     std::cout << "Please enter the operation (+, -, /, *, %):\n";
-    char op_char;
-    std::cin >> op_char;
-    switch (op_char)
+    std::cin >> this->op_char_;
+    switch (this->op_char_)
     {
     case '+':
         Add();
@@ -52,9 +51,10 @@ void Calculator_Namespace::Calculator_Class::TakeUserInputs_Operation(void)
 void Calculator_Namespace::Calculator_Class::TakeUserInputs_Operation_Print(void)
 {
     std::cout << "Please enter two numbers:\n";
-    std::cin >> this->first_num_ >> this->second_num_;
+    std::cin >> first_num_ >> second_num_;
     std::cout << "Please enter the operation (+, -, /, *, %):\n";
     std::cin >> this->op_char_;
+    // std::cout << this->op_char_ << "\n"; // Debugging line to check the operator character.
     switch (this->op_char_)
     {
     case '+':

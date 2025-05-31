@@ -40,9 +40,7 @@ namespace Calculator_Namespace
         void Div(void);      // Div.
         void Multiply(void); // Multiply.
         void Rem(void);      // Remainder.
-        char GetOperatorChar(OperationType_enum operation);
         void PrintOperationResult(void);
-        // double Switch(double a, double b, char op); // New function to select operation
 
         // Constructor and Destructor.
         Calculator_Class(void) = default;                               // Default Constructor.
