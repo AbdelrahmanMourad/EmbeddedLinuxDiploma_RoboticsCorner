@@ -68,21 +68,21 @@ int main()
     Calculator::Welcome();
 
     // Overloading by type
-    std::cout << "Add(double, double): " << Calculator::Add(2.5, 3.5) << std::endl;
-    std::cout << "Add(int, int): " << Calculator::Add(2, 3) << std::endl;
+    std::cout << "Add(double, double):\t\t" << Calculator::Add(2.5, 3.5) << std::endl;
+    std::cout << "Add(int, int):      \t\t" << Calculator::Add(2, 3) << std::endl;
 
     // Overloading by number of parameters
-    std::cout << "Add(double, double, double): " << Calculator::Add(1.1, 2.2, 3.3) << std::endl;
+    std::cout << "Add(double, double, double):\t" << Calculator::Add(1.1, 2.2, 3.3) << std::endl;
 
     // Overloading by parameter order
-    std::cout << "Mix(double, int): " << Calculator::Mix(2.5, 3) << std::endl;
-    std::cout << "Mix(int, double): " << Calculator::Mix(2, 3.5) << std::endl;
+    std::cout << "Mix(double, int):\t" << Calculator::Mix(2.5, 3) << std::endl;
+    std::cout << "Mix(int, double):\t" << Calculator::Mix(2, 3.5) << std::endl;
 
     // Other operations
-    std::cout << "Sub: " << Calculator::Sub(10, 4) << std::endl;
-    std::cout << "Div: " << Calculator::Div(10, 4) << std::endl;
-    std::cout << "Multiply: " << Calculator::Multiply(10, 4) << std::endl;
-    std::cout << "Rem: " << Calculator::Rem(10, 4) << std::endl;
+    std::cout << "Sub:     \t" << Calculator::Sub(10, 4) << std::endl;
+    std::cout << "Div:     \t" << Calculator::Div(10, 4) << std::endl;
+    std::cout << "Multiply:\t" << Calculator::Multiply(10, 4) << std::endl;
+    std::cout << "Rem:     \t" << Calculator::Rem(10, 4) << std::endl;
 
     return 0;
 }
