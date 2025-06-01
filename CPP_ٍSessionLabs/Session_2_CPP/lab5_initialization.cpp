@@ -26,6 +26,8 @@
 |       Q6: What is the downside of each type of initialization?
 |       Q7: How do you initialize a struct or class?
 |       Q8: How do you initialize an array?
+|       Q9: What is the difference between value initialization and zero-initialization?
+|       Q10: Can you use list initialization with STL containers?
 ================================================================================
 */
 
