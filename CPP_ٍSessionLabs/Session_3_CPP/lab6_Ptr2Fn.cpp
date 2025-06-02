@@ -1,12 +1,3 @@
-#include <iostream>
-#include <array>
-#include <vector>
-#include <map>
-#include <list>
-#include <algorithm>
-#include <functional>
-#include <string>
-
 /*
 ================================================================================
 |   C++ Pointers to Functions & Lambdas - Study & Lab Summary
@@ -15,6 +6,14 @@
 | - Syntax: returnType (*ptrName)(paramTypes) = functionName;
 | - Lambdas with no capture can be assigned to function pointers.
 | - Lambdas with captures require std::function.
+| - Lambda captures:
+|     * []        : No capture
+|     * [=]       : Capture all by value
+|     * [&]       : Capture all by reference
+|     * [x]       : Capture x by value
+|     * [&x]      : Capture x by reference
+|     * [=, &y]   : Capture all by value, y by reference
+|     * [&, x]    : Capture all by reference, x by value
 | - You can pass function pointers or std::function as parameters to functions,
 |   including those that operate on classes, structs, STL containers, etc.
 | - Data type for pointer to lambda (no capture): auto or explicit type.
@@ -23,6 +22,7 @@
 |     * Pointer to regular function
 |     * Pointer to overloaded function (with explicit cast)
 |     * Pointer to lambda (no capture) - explicit and auto
+|     * Lambdas with all capture types (by value, by reference, mixed)
 |     * std::function with lambda (with capture)
 |     * Array of function pointers
 |     * Passing function pointer to functions with various parameter types
@@ -30,6 +30,18 @@
 |     * Using function pointer with classes, structs, vectors, maps, lists, trees
 ================================================================================
 */
+
+/*  ================================================================================
+                        Included libraries
+    ================================================================================    */
+#include <iostream>
+#include <array>
+#include <vector>
+#include <map>
+#include <list>
+#include <algorithm>
+#include <functional>
+#include <string>
 
 /*  ================================================================================
                         Declarations of Structs / Classes
@@ -127,6 +139,28 @@ int main()
     std::cout << "lambda_ptr(3,4):  " << lambda_ptr(3, 4) << std::endl;
     std::cout << "lambda_auto(3,4): " << lambda_auto(3, 4) << std::endl;
 
+    // --- Lambdas with all capture types ---
+    int x = 5, y = 7, z = 100;
+    auto lambda_no_capture = [](int a, int b)
+    { return a + b; };
+    auto lambda_by_value = [x, y](int a)
+    { return a + x + y; };
+    auto lambda_by_ref = [&x, &y](int a)
+    { x += a; y += a; return x + y; };
+    auto lambda_all_by_value = [=](int a)
+    { return a + x + y + z; };
+    auto lambda_all_by_ref = [&](int a)
+    { x += a; y += a; z += a; return x + y + z; };
+    auto lambda_mixed = [=, &y](int a)
+    { return a + x + y + z; }; // x,z by value, y by ref
+
+    std::cout << "lambda_no_capture(1,2):  " << lambda_no_capture(1, 2) << std::endl;
+    std::cout << "lambda_by_value(10):     " << lambda_by_value(10) << std::endl;
+    std::cout << "lambda_by_ref(10):       " << lambda_by_ref(10) << " (x=" << x << ", y=" << y << ")\n";
+    std::cout << "lambda_all_by_value(10): " << lambda_all_by_value(10) << std::endl;
+    std::cout << "lambda_all_by_ref(10):   " << lambda_all_by_ref(10) << " (x=" << x << ", y=" << y << ", z=" << z << ")\n";
+    std::cout << "lambda_mixed(10):        " << lambda_mixed(10) << " (y=" << y << ")\n";
+
     // --- std::function with lambda (with capture) ---
     int offset = 10;
     std::function<int(int, int)> lambda_with_capture = [offset](int a, int b)
@@ -160,8 +194,6 @@ int main()
 
     // --- Using function pointer with std::sort ---
     std::array<int, 6> nums{100, 99, 5, 180, 1000, 33};
-
-    // ---
     std::sort(nums.begin(), nums.end(), compare_desc); // descending
     std::cout << "Sorted descending: ";
     for (auto element : nums)
@@ -203,7 +235,7 @@ int main()
 }
 
 /*  ================================================================================
-                        Functions Inplementations
+                        Functions Implementations
     ================================================================================    */
 // Regular functions
 int add(int a, int b) { return a + b; }
@@ -306,5 +338,13 @@ void inorder(TreeNode *root, void (*visit)(int))
 |
 | Q9: What are the advantages and disadvantages of function pointers?
 | A9: Advantages: dynamic dispatch, flexibility. Disadvantages: less type safety, harder to debug, can't store state (use lambdas/std::function for that).
+|
+| Q10: What are the different lambda capture modes and when do you use them?
+| A10: [] - no capture; [=] - capture all by value; [&] - capture all by reference;
+|      [x] - capture x by value; [&x] - capture x by reference; [=, &y] - all by value, y by ref.
+|      Use by value for safety (no side effects), by reference for efficiency or to modify variables.
+|
+| Q11: Can you assign a lambda with capture to a function pointer?
+| A11: No, only lambdas with no capture can be assigned to a function pointer. Use std::function for lambdas with captures.
 ================================================================================
 */
