@@ -262,9 +262,24 @@ void print_vector(const std::vector<int> &v)
 void print_map(const std::map<std::string, int> &m)
 {
     std::cout << "Map: ";
-    for (const auto &[k, v] : m)
-        std::cout << k << ":" << v << " ";
+
+    // C++11
+    // ==> "g++ -std=c++11 -o main.exe main.cpp"
+    // ==> "g++  lab6_Ptr2Fn.cpp && .\a"
+    for (const auto &pair : m)
+    {
+        std::cout << pair.first << ":" << pair.second << " ";
+    }
     std::cout << std::endl;
+
+    // // C++17
+    // // ==> "g++ -std=c++17 -o main.exe main.cpp" ,or: 
+    // // ==> "g++ -std=c++17 lab6_Ptr2Fn.cpp && .\a"
+    // for (const auto &[k, v] : m)
+    // {
+    //     std::cout << k << ":" << v << " ";
+    // }
+    // std::cout << std::endl;
 }
 
 // Function operating on list
