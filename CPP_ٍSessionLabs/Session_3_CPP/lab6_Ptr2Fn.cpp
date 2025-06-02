@@ -100,11 +100,11 @@ void print_list(const std::list<std::string> &l);
 // Function pointer as parameter for vector operation
 void apply_to_vector(const std::vector<int> &v, void (*func)(int));
 
-// Function pointer as parameter for class
-void apply_to_person(const Person &p, void (*func)(const Person &)) { func(p); }
+// Function pointer as parameter for clas
+void apply_to_person(const Person &p, void (*func)(const Person &));
 
 // Function pointer as parameter for struct
-void apply_to_point(const Point &pt, void (*func)(const Point &)) { func(pt); }
+void apply_to_point(const Point &pt, void (*func)(const Point &));
 
 // Tree node and traversal with function pointer
 void inorder(TreeNode *root, void (*visit)(int));
@@ -273,7 +273,7 @@ void print_map(const std::map<std::string, int> &m)
     std::cout << std::endl;
 
     // // C++17
-    // // ==> "g++ -std=c++17 -o main.exe main.cpp" ,or: 
+    // // ==> "g++ -std=c++17 -o main.exe main.cpp" ,or:
     // // ==> "g++ -std=c++17 lab6_Ptr2Fn.cpp && .\a"
     // for (const auto &[k, v] : m)
     // {
@@ -299,16 +299,10 @@ void apply_to_vector(const std::vector<int> &v, void (*func)(int))
 }
 
 // Function pointer as parameter for class
-void apply_to_person(const Person &p, void (*func)(const Person &))
-{
-    func(p);
-}
+void apply_to_person(const Person &p, void (*func)(const Person &)) { func(p); }
 
 // Function pointer as parameter for struct
-void apply_to_point(const Point &pt, void (*func)(const Point &))
-{
-    func(pt);
-}
+void apply_to_point(const Point &pt, void (*func)(const Point &)) { func(pt); }
 
 // Tree node and traversal with function pointer
 void inorder(TreeNode *root, void (*visit)(int))
