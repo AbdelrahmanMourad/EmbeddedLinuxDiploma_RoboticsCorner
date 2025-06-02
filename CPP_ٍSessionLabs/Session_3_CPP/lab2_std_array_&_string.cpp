@@ -68,6 +68,11 @@ int main()
     }
     std::cout << std::endl;
 
+    // Set New values to test the std::sort()
+    // welcome_word = {1, 2, 3, 4, 5, 6};          // ☺ ☻ ♥ ♦ ♣ ♠   // ASCII
+    welcome_word = {'1', '2', '3', '4', '5', '6'}; // 1 2 3 4 5 6   // char
+    // welcome_word = {"123456"};                  // 1 2 3 4 5 6   // char // ERROR {initialization only}
+
     // 6. Sort in ascending order and print (Default).
     std::sort(welcome_word.begin(), welcome_word.end());
     std::cout << "welcome_word after ascending sort (Default):\n";
