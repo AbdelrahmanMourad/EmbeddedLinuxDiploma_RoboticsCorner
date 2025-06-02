@@ -164,10 +164,10 @@ int main()
 ================================================================================
 |   Interview Q&A (added for phrases):
 |-------------------------------------------------------------------------------
-| Q: If we have a large array of multiple phrases, how can we loop on it character by character?
-| A: Use nested loops: outer for each phrase, inner for each character in the phrase.
+| Q1: If we have a large array of multiple phrases, how can we loop on it character by character?
+| A1: Use nested loops: outer for each phrase, inner for each character in the phrase.
 |
-| Q: How can we loop on it word by word?
-| A: Loop on the array/vector itself; each element is a word/phrase.
+| Q2: How can we loop on it word by word?
+| A2: Loop on the array/vector itself; each element is a word/phrase.
 ================================================================================
 */
