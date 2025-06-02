@@ -1,6 +1,6 @@
 #include <iostream>
 #include <array>
-#include <algorithm>
+#include <algorithm> // for std::sort
 
 /*
     Muti-dimensional Arrays. {Used in AI & Robotics}. {Not preferred in Cpp}.
@@ -13,10 +13,8 @@ int main()
     std::array<char, 6> word; // allocate in Stack. {garbage}
 
     // 2D array.
-    int matrix_c [2][2];
-    std::array<std::array<int, 4>, 3> matrix_cpp ;
-
-    
+    int matrix_c[2][2];
+    std::array<std::array<int, 4>, 3> matrix_cpp;
 
     return 0;
 }
