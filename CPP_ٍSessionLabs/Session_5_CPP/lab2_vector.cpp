@@ -1,3 +1,28 @@
+/*
+================================================================================
+|   C++ std::vector - Study & Lab Summary
+|-------------------------------------------------------------------------------
+| - std::vector is a dynamic array from the STL.
+| - Size can grow/shrink at runtime; memory is managed automatically (heap).
+| - Provides random access, efficient insertion/removal at the end, and many utility functions.
+| - Syntax & Initialization:
+|     std::vector<int> v1;              // empty
+|     std::vector<int> v2(5);           // 5 zeros
+|     std::vector<int> v3(5, 100);      // 5 elements, all 100
+|     std::vector<int> v4{1,2,3,4,5};   // initializer list
+| - Common Operations:
+|     push_back(val), pop_back(), size(), capacity(), resize(), clear(), erase(), insert(), at(), operator[], sort()
+| - Iteration:
+|     Range-based for, index-based, iterator-based (auto or explicit)
+| - Tips:
+|     * Capacity may be larger than size for efficiency.
+|     * Use reserve(n) to pre-allocate.
+|     * Use erase-remove idiom to remove by value.
+|     * Prefer vector over raw arrays for safety and flexibility.
+| - Interview Q&A at the end.
+================================================================================
+*/
+
 #include <iostream>
 #include <vector>
 #include <algorithm> // for lambdaa expression
@@ -16,9 +41,9 @@
         - Containers
             - Array
             - Vector
-        - Algo.abort
+        - Algos
             - Sort
-            - for each
+            - for_each
         - Iterators
             -
 
@@ -39,7 +64,6 @@
 
 namespace HelpingFunctions
 {
-    // print separator function.
     void PrintSeparatorFn(void)
     {
         std::cout << "---------------------\n";
@@ -52,6 +76,12 @@ namespace HelpingFunctions
 
 int main()
 {
+    // --- Initialization examples ---
+    std::vector<int> list1;         // zero elements
+    std::vector<int> list2(5);      // 5 zeros
+    std::vector<int> list3(5, 100); // 5 elements, all 100
+    list3.push_back(6);             // add 6 at the end
+
     // vector
     std::vector<int> list1;         // zero number of elements
     std::vector<int> list2(5);      // 5 of zero elements
@@ -60,6 +90,7 @@ int main()
     list3.push_back(6);             // will add at the end same size {5 element} , 1st is 6, rest are zeros
                                     // |100|100|100|100|100|6|0|0|0|0|
 
+                                        // --- Capacity and size behavior ---
     // NOTE: if not assigning size, automatically it assigns "1 bytes"
     std::vector<int> nums1;
     nums1.push_back(100);
@@ -111,6 +142,7 @@ int main()
 
     HelpingFunctions::PrintSeparatorFn();
 
+    // --- Range-based for ---
     for (auto element : nums2)
     {
         // Print elements.
@@ -119,46 +151,45 @@ int main()
 
     HelpingFunctions::PrintSeparatorFn();
 
+    // --- Index-based for ---
     for (int i = 0; i < nums2.size(); i++)
     {
         std::cout << nums2[i] << "\n";
     }
     HelpingFunctions::PrintSeparatorFn();
 
+    // --- Iterator-based for ---
     std::vector<int>::iterator it; // it's a pointer    // can replace with auto
     for (it = nums2.begin(); it != nums2.end(); ++it)
     {
         std::cout << "*it =\t" << *it << "\n";
     }
 
-    // std::vector<int>::iterator it; // it's a pointer    // can replace with auto
+    // // Or with auto:
     // for (auto it = nums2.begin(); it != nums2.end(); ++it)
     // {
-    //     std::cout << "*it" << *it << "\n";
+    //     std::cout << "*it =\t" << *it << "\n";
     // }
 
     /*
-        We can use also the functions as used with arrays
-        {{{{    Chech CPP Reference     }}}}
-
-            push_bach()
-            size()
-            erase()
+        You can use functions as with arrays:   (Check CPP_Reference_Website)
+            push_back(), size(), erase(), etc.
     */
 
     HelpingFunctions::PrintSeparatorFn();
     HelpingFunctions::PrintTextFn("Sort():");
     HelpingFunctions::PrintSeparatorFn();
 
-    std::sort(nums2.begin(), nums2.end(), [](int a, int b)
-              { return a > b; });
+    // --- Sorting with lambda (descending) ---
+    std::sort(nums2.begin(), nums2.end(), [](int a, int b) { return a > b; });
 
     for (auto it = nums2.begin(); it != nums2.end(); ++it)
     {
         std::cout << "*it =\t" << *it << "\n";
     }
 
-    nums2.erase(std::remove(nums2.begin(), nums2.end(), 80));
+    // --- Erase-remove idiom to remove all 80s ---
+    nums2.erase(std::remove(nums2.begin(), nums2.end(), 80), nums2.end());
 
     HelpingFunctions::PrintSeparatorFn();
     HelpingFunctions::PrintTextFn("erase element = 80:");
@@ -171,3 +202,30 @@ int main()
 
     return 0;
 }
+
+/*
+================================================================================
+|   Interview Questions & Answers - std::vector
+|-------------------------------------------------------------------------------
+| Q1: What is the difference between vector and array?
+| A1: Array has fixed size at compile time; vector is dynamic and can grow/shrink at runtime.
+|
+| Q2: How does vector manage memory?
+| A2: Allocates memory on the heap and resizes automatically as elements are added/removed.
+|
+| Q3: What is the difference between size and capacity?
+| A3: Size is the number of elements; capacity is the allocated storage (may be larger than size).
+|
+| Q4: How do you remove all occurrences of a value?
+| A4: Use erase-remove idiom: v.erase(std::remove(v.begin(), v.end(), value), v.end());
+|
+| Q5: How do you sort a vector in descending order?
+| A5: std::sort(v.begin(), v.end(), [](int a, int b){ return a > b; });
+|
+| Q6: What happens if you access out-of-bounds index?
+| A6: v[i] is undefined behavior; v.at(i) throws std::out_of_range exception.
+|
+| Q7: Can you store custom objects in a vector?
+| A7: Yes, as long as they are copyable/movable.
+================================================================================
+*/
