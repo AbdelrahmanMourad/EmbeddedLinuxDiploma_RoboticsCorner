@@ -151,8 +151,8 @@ int main()
 |   Interview Questions & Answers - Inheritance, Polymorphism, and Relationships
 |-------------------------------------------------------------------------------
 | Q1: What is the difference between inheritance and composition?
-| A1: Inheritance is an "is-a" relationship (e.g., Dog is an Animal). Composition is a "has-a"
-|     relationship (e.g., Car has an Engine).
+| A1: Inheritance is an "is-a" relationship (e.g., Dog is an Animal). 
+|     Composition is a "has-a" relationship (e.g., Car has an Engine).
 |
 | Q2: What is polymorphism in C++?
 | A2: Polymorphism allows using a derived class object as if it were a base class object.
@@ -177,8 +177,8 @@ int main()
 |     invoked through a base class pointer/reference.
 |
 | Q7: What is the difference between association and dependency?
-| A7: Association is a general relationship where one class uses another. Dependency is a
-|     specific "uses-a" relationship, often temporary.
+| A7: Association is a general relationship where one class uses another. 
+|     Dependency is a specific "uses-a" relationship, often temporary.
 |
 | Q8: What is the role of destructors in composition?
 | A8: Destructors ensure proper cleanup of dynamically allocated objects in composition.
