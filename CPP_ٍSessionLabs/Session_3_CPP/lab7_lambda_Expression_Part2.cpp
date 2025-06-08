@@ -26,6 +26,9 @@ ________________________________________________________________________________
                     Included Libraries.
     =================================================================== */
 #include <iostream>
+#include <vector>
+#include <algorithm>
+#include <numeric>
 // #include <utility>
 
 /*  ===================================================================
@@ -79,7 +82,6 @@ int main()
     // void (*funcPtrToLambda02)(int) = lambda02; // This will cause a compilation error because Lambda 2 captures a variable.
     // void (*funcPtr2)(int) = lambda2; // Uncommenting this line causes an error.
 
-
     /*-----------------------------------------------------------------------------------------*/
     HelpingFunctions::printSeparator(std::move("Using Lambdas with default values, and using mutable:"));
     /*-----------------------------------------------------------------------------------------*/
@@ -124,7 +126,180 @@ int main()
     auto Print = []()
     { std::cout << "Lambda called without function pointer.\n"; };
     Print(); // Simply calling the lambda without a function pointer.
+    std::cout << std::endl
+              << std::endl
+              << std::endl;
 
+    /**
+     *********************************************************************************************
+     * Lambda - 10 - Different Use Cases
+     **********************************************************************************************
+     **/
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(1.) Lambda Returning a Value: \nUse Case: ADC Calibration Correction"));
+    /*-----------------------------------------------------------------------------------------*/
+    auto calibrateADC = [](float value) -> float
+    {   return value * 1.1; /*Apply a gain factor for calibration*/ };
+
+    float adcInput = 3.5;                          //  Example ADC input value.
+    float correctedValue = calibrateADC(adcInput); // Example ADC corrected output value.
+    std::cout << "ADC= " << adcInput << "\t,Calibrated ADC= " << correctedValue << std::endl;
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(2.) Using \'std::for_each\' for CAN Message Filtering:\nUse Case: Filtering Even CAN Message IDs"));
+    /*-----------------------------------------------------------------------------------------*/
+    // #include <vector>
+    // #include <algorithm>
+    std::vector<int> canMessageIDs = {100, 101, 102, 103, 104}; // Define vactor of integers representing can message IDs.
+    std::cout << "Accepted CAN Messages: ";
+    std::for_each(canMessageIDs.begin(), canMessageIDs.end(), [](int id)
+                  {
+                    if (id % 2 == 0) 
+                        {std::cout << id << " "; } }); // Filter even IDs and print them.
+    std::cout << std::endl;
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(3.) Using \'std::for_each\' for GPIO Pin Control: \nUse Case: Printing GPIO Pin States Dynamically"));
+    /*-----------------------------------------------------------------------------------------*/
+    // #include <vector>
+    // #include <algorithm>
+    std::vector<bool> gpioStates = {true, false, true, false, true};
+
+    std::cout << "GPIO Pin States:\n";
+    std::for_each(gpioStates.begin(), gpioStates.end(), [](bool state)
+                  { std::cout << (state ? "HIGH" : "LOW") << std::endl; });
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(4.) Using a Lambda for Interrupt Handling : \nUse Case: Handling Different Interrupt Request "));
+    /*-----------------------------------------------------------------------------------------*/
+
+    auto interruptHandler = [](int irq)
+    { std::cout << "Handling IRQ: " << irq << std::endl; };
+
+    interruptHandler(5); // Simulate handling an interrupt
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(5.) Task Scheduling : \nUse Case: Executing a Task Every Interval "));
+    /*-----------------------------------------------------------------------------------------*/
+    auto taskScheduler = [](int interval)
+    { std::cout << "Task executed every " << interval << "ms" << std::endl; };
+
+    taskScheduler(100);
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(6.) State Machine Transitions : \nUse Case: Managing State Changes in an Embedded System "));
+    /*-----------------------------------------------------------------------------------------*/
+    auto stateTransition = [](int state)
+    { std::cout << "Transitioning to state: " << state << std::endl; };
+
+    stateTransition(2); // Transitioning state machine
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(7.) Signal Processing : \nUse Case: Doubling an Analog Signal Value "));
+    /*-----------------------------------------------------------------------------------------*/
+    auto processSignal = [](int data)
+    { return data * 2; };
+
+    std::cout << "Processed Signal: " << processSignal(50) << std::endl;
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(8.) Low Power Mode Switching : \nUse Case: Switching Between Power States "));
+    /*-----------------------------------------------------------------------------------------*/
+    auto switchPowerMode = [](bool active)
+    { std::cout << "System mode: " << (active ? "Active" : "Low Power") << std::endl; };
+
+    switchPowerMode(false);
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(9.) Error Handling: \nUse Case: Logging Error Codes Dynamically "));
+    /*-----------------------------------------------------------------------------------------*/
+    auto handleError = [](int errorCode)
+    { std::cout << "Handling error code: " << errorCode << std::endl; };
+
+    handleError(404); // Simulating error handling
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(10.) Data Formatting for Communication Protocols : \nUse Case: Applying a Mask to Format Packet Data"));
+    /*-----------------------------------------------------------------------------------------*/
+    auto formatPacket = [](int payload)
+    { return payload | 0xFF; };
+
+    std::cout << "Formatted Packet: " << formatPacket(128) << std::endl;
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(11.) Lambda Returning a Boolean (std::find_if): \nUse Case: Find the First Even Number"));
+    /*-----------------------------------------------------------------------------------------*/
+    // #include <vector>
+    // #include <algorithm>
+
+    std::vector<int> numbers = {3, 7, 8, 11, 14, 21};
+
+    auto isEven = [](int num) -> bool
+    { return num % 2 == 0; };
+
+    auto it = std::find_if(numbers.begin(), numbers.end(), isEven);
+
+    if (it != numbers.end())
+        std::cout << "First even number: " << *it << std::endl;
+    else
+        std::cout << "No even numbers found." << std::endl;
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(12.) Lambda Returning an Integer (std::transform): \nUse Case: Doubling Each Element"));
+    /*-----------------------------------------------------------------------------------------*/
+    // #include <vector>
+    // #include <algorithm>
+    std::vector<int> values = {1, 2, 3, 4, 5};
+    std::vector<int> doubled(values.size());
+
+    std::transform(values.begin(), values.end(), doubled.begin(),
+                   [](int val) -> int
+                   { return val * 2; });
+
+    std::cout << "Doubled values: ";
+    for (int num : doubled)
+        std::cout << num << " ";
+    std::cout << std::endl;
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(13.) Lambda Returning a String (std::map + std::transform): \nUse Case: Converting Values to Messages"));
+    /*-----------------------------------------------------------------------------------------*/
+    // #include <vector>
+    // #include <algorithm>
+    // #include <string>
+    std::vector<int> statusCodes = {200, 404, 500};
+    std::vector<std::string> statusMessages(statusCodes.size());
+
+    std::transform(statusCodes.begin(), statusCodes.end(), statusMessages.begin(),
+                   [](int code) -> std::string
+                   {
+                       if (code == 200)
+                           return "OK";
+                       if (code == 404)
+                           return "Not Found";
+                       return "Server Error";
+                   });
+
+    std::cout << "Status messages: ";
+    for (const auto &msg : statusMessages)
+        std::cout << msg << ", ";
+    std::cout << std::endl;
+
+    /*-----------------------------------------------------------------------------------------*/
+    HelpingFunctions::printSeparator(std::move("(14.) Lambda Returning a Floating Point (std::accumulate): \nUse Case: Calculating the Average"));
+    /*-----------------------------------------------------------------------------------------*/
+    // #include <vector>
+    // #include <numeric>
+    std::vector<int> numbers = {10, 20, 30, 40, 50};
+
+    auto sumLambda = [](double acc, int num) -> double
+    { return acc + num; };
+
+    double average = std::accumulate(numbers.begin(), numbers.end(), 0.0, sumLambda) / numbers.size();
+
+    std::cout << "Average: " << average << std::endl;
+
+    /************************************************************************************/
     return 0;
 }
 
@@ -134,13 +309,13 @@ int main()
 
     ---- Lambda Expressions Overview ----
         A lambda expression in C++ allows the creation of anonymous functions on-the-fly.
-        Syntax:     
+        Syntax:
             _________________________________________________________________
             |                                                               |
             |       [capture] (parameters) -> returnType { body }           |
             |                                                               |
             |_______________________________________________________________|
-            
+
     ---- Capture Mechanisms ----
         - []            : No capture (stateless lambda)
         - [var]         : Capture var by value (copy stored within lambda)
