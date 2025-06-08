@@ -57,21 +57,28 @@ int main()
     // Lambda 1: No capture, takes a parameter, prints the value.
     // [](int passedValue)
     auto lambda01 = [](int passedValue)
-    { std::cout << "lambda 01 value =          " << passedValue << std::endl; };
+    { std::cout << "lambda 01 passed_value =   " << passedValue << std::endl; };
 
     // Lambda 2: Captures a variable from surrounding scope, prints the value of the captured variable and takes a parameter.
     // [capturedValue](int passedValue)
     auto lambda02 = [capturedValue](int passedValue)
     { std::cout << "lambda 02 captured_value = " << capturedValue << std::endl; };
 
+    // calling the lambdas directly:
+    std::cout << "\nCalling Lambdas Directly:\n";
+    lambda01(passedValue);
+    lambda02(passedValue);
+
     // Using function pointer for lambda01 (valid).
     void (*funcPtrToLambda01)(int) = lambda01;
+    std::cout << "\nCalling funPtr2Lambds:\n";
     funcPtrToLambda01(passedValue); // Call the function pointer with a value passed.
     funcPtrToLambda01(15);          // Call the function pointer with a value passed.
 
     // Attempting function pointer for lambda2 (invalid)
     // void (*funcPtrToLambda02)(int) = lambda02; // This will cause a compilation error because Lambda 2 captures a variable.
     // void (*funcPtr2)(int) = lambda2; // Uncommenting this line causes an error.
+
 
     /*-----------------------------------------------------------------------------------------*/
     HelpingFunctions::printSeparator(std::move("Using Lambdas with default values, and using mutable:"));
