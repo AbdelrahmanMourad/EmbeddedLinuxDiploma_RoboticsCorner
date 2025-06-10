@@ -1,33 +1,25 @@
 
 /*________________________________________________________________________________________________________
 
-    Task(7.7): Extra Prefix sum:
-    ----------------------------
+    Task(9.1):
+    ----------
 
-        You are given an array of N integers.
-        You have to answer Q queries.
-        Each query contains two integers L and R
-        For each query print the sum of integers in array from index L to R
-        
-        Input :
-            First line will contain an integer T (number of test cases).
-            T blocks of line follows.
-            First line of each block contains an integer N (number of array elements).
-            Next line contains N integers (array elements).
-            Next line contains an integer Q (number of queries).
-            Next Q lines contain two integers L and R
-        
-        HINT:
-            use prefix sum array.
-    
-        Sample Input :
-            2 4 10 20 30
-            40 2 1 4 2 3 5
-            1 1 1 1 1 3 1 2
-            2 5 5 5
-        
-        Sample Output:
-            100 50 2 4 1
+        Write a program that checks if a series of integers entered by the user are consecutive numbers. 
+            1.  Input the Number of Elements:
+                *   First, read an integer n from the user, which specifies how many numbers the user will input. 
+            2.  Input Elements into a Vector: 
+                *   Create a std::vector nums. 
+                *   Use a loop to input n integers from the user and store them in the vector. 
+            3.  Test Function: 
+                *   Implement the function bool test(std::vector nums) that: 
+                    -   Sorts the vector in ascending order using std::sort(). 
+                    -   Loops through the sorted vector to check if every number is consecutive 
+                        (i.e., each number should be exactly 1 greater than the previous one). 
+                    -   Returns true if all numbers are consecutive, otherwise returns false. 
+            4.  Main Function: 
+                *   After accepting the user input, call the test() function. 
+                *   Print "True" if the numbers are consecutive, otherwise print "False".
+
 ___________________________________________________________________________________________________________*/
 
 /*  -------------------------------------------------------------------
