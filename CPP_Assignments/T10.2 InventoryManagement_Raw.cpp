@@ -45,6 +45,8 @@ ________________________________________________________________________________
     ------------------------------------------------------------------- */
 #include <iostream>
 #include <vector>
+#include <functional>
+
 /*  -------------------------------------------------------------------
                         Declarations / Functions Prototype
     ------------------------------------------------------------------- */
@@ -56,15 +58,64 @@ struct Item
 };
 
 /*  -------------------------------------------------------------------
-                        Entry Point
+                        Entry Point - Main Function
     ------------------------------------------------------------------- */
 int main()
 {
-    std::vector<Item> Inventory;
+    // 1. Create an Inventory
+    // std::vector<Item> inventory;
+    // inventory.push_back({"Laptop", 700, 5});
+    // inventory.push_back({"SmartPhone", 900, 12});
+    // inventory.push_back({"Teblet", 400, 8});
 
-    Inventory.push_back({"Laptop", 700, 5});
-    Inventory.push_back({"SmartPhone", 900, 12});
-    Inventory.push_back({"Teblet", 400, 8});
+    std::vector<Item> inventory = {
+        {"Laptop", 1200.0f, 5},
+        {"Smartphone", 699.0f, 0},
+        {"Tablet", 450.0f, 12}};
+
+    // 2. Lambda to Update Price
+    std::function<void(std::string, float)> updatePrice = [&inventory](const std::string &&itemName, const float &&newPrice) -> void
+    {
+        for (auto &item : inventory)
+        {
+            if (item.Name == itemName)
+            {
+                item.Price = newPrice;
+                std::cout << "Updated price of " << itemName << " to $" << newPrice << "\n";
+                return;
+            }
+        }
+        std::cout << "Item \"" << itemName << "\" not found in inventory.\n";
+    };
+
+    // 3. Lambda to Check if Item is Out of Stock (capture by value)
+    std::function<bool(std::string)> isOutOfStock = [inventory](const std::string &&name) mutable -> bool
+    {
+        /*Check if the quantity==0 or not*/
+        for (auto &item : inventory)
+        {
+            if (item.Name == name)
+                return false; // is is stock.
+        }
+        return true; // is out of stock
+    };
+
+    // 4. Lambda to Calculate Total Inventory Value
+    std::function<float(void)> calculateTotalValue = [&inventory](void) -> float
+    {
+        float total = 0;                           // Temp container.
+        for (auto item : inventory)                // Loop
+            total += (item.Price * item.Quantity); // Calc
+        return total;                              // Return
+    };
+
+    // === Demonstration ===
+    updatePrice("Smartphone", 749.99f);
+
+    std::string testItem = "Laptop";
+    std::cout << testItem << (isOutOfStock(testItem) ? " is out of stock.\n" : " is in stock.\n");
+
+    std::cout << "Total Inventory Value: $ " << calculateTotalValue() << "\n";
 
     return 0;
 }
