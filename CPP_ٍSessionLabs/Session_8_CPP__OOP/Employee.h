@@ -61,8 +61,31 @@ private:
     */
 };
 
-/*
+/*  =========================================================================================
     Search:
         Rule of Five
             https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines
+    =========================================================================================
+*/
+
+/*  =========================================================================================
+    NOTE:   {"""Copy constructor vs assignment operator= """}
+
+        *   If we created instance before:      ======>    It calls the operator=
+            ex:
+                Shape shape;
+                Shape rect(2,4);
+                shape =rect;        // Asignement operator=
+
+        *   If we create instance NOW:          ======>    it calls the copy constructor
+            ex:
+                Shape shape1;
+                Shape shape2 (shape1);      // Copy Constructor.
+                Shape shape3 = Shape2;      // Copy Constructor.
+
+    -----------------------------------------------------------------------------------------
+
+    NOTE: if you don't define a copy-constructor explicitly, the compiler creates one for you.
+
+    =========================================================================================
 */
