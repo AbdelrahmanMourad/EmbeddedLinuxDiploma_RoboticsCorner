@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>    // for Vectors
-#include <algorithm> // for lambdaa expression
+#include <algorithm> // to use algos with lambdaa expression
 #include "Employee.h"
 
 // NOTE: constructor - Function that is called "Automatically" when we inialize class.
@@ -34,14 +34,14 @@ void Employee::display() const
 Func has no return type , called directly when creating object instance
  */
 // default constructor {1}
-Employee::Employee() /*Constructor Initializers....*/// : id{-1}, name{"Unknown"}, age{60}, salary{0}
+Employee::Employee() /*Constructor Initializers....*/ // : id{-1}, name{"Unknown"}, age{60}, salary{0}
 {
     PrintSeparator();
     std::cout << "default constructor\n";
     PrintSeparator();
 }
 // Parameterized constructor (2)
-Employee::Employee(int id, int age, std::string name) : id{id},name{name}, age{age}, salary{salary} /*Constructor Initializers*/
+Employee::Employee(int id, int age, std::string name) : id{id}, name{name}, age{age}, salary{salary} /*Constructor Initializers*/
 {
     this->id = id;
     this->age = age;
@@ -49,11 +49,14 @@ Employee::Employee(int id, int age, std::string name) : id{id},name{name}, age{a
     std::cout << "Parameterized Constructor:" << "\n\tid:\t" << this->id << "\n\tage:\t" << this->age << "\n\tname:\t" << this->name << std::endl;
     PrintSeparator();
 
-    for (size_t size{0};)
+    for (size_t size{0}; size < 5; size++)
+    {
+    }
 }
 // Delegate Constructor
 Employee::Employee(int id, int age)
-{}
+{
+}
 
 /*_______________Destructors____________________
  */
