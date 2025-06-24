@@ -1,7 +1,5 @@
 /************** YOLO NOT WORKING YET **************/
 
-
-
 #include <opencv2/imgcodecs.hpp> // For image file reading and writing.
 #include <opencv2/highgui.hpp>   // For displaying images/windows.
 #include <opencv2/imgproc.hpp>   // For image transformations like resize(), rectangle(), putText(), etc.
