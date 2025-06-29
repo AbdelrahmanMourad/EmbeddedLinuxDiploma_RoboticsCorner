@@ -68,7 +68,17 @@ private:
     IStrategy *ptr_Istrategy_;
 
 public:
-    Vehicle(IStrategy *Ptr_Istrategy) : ptr_Istrategy_{Ptr_Istrategy} { std::cout << "Constructor Called: Vehicle.\n"; }
+    Vehicle(IStrategy *Ptr_Istrategy) : ptr_Istrategy_{Ptr_Istrategy} 
+    {
+        if(dynamic_cast<StrategyBMW*>(ptr_Istrategy_))
+        {
+            std::cout << " Called: BWM Vehicle.\n";
+        }
+        else
+        {
+            std::cout << " Called: Not BMW Vehicle.\n";
+        }
+    }
     ~Vehicle() { std::cout << "Destructor Called: Vehicle.\n"; }
     void VehicleSpeed() { ptr_Istrategy_->calculateSpeed(); }
 };
@@ -82,6 +92,7 @@ int main()
     StrategyMini Mini1;
 
     Vehicle V1{&BMW1};
+    std::cout << "-------------------------------------------------------------------------------------" << std::endl;
     Vehicle V2{&Mini1};
 
     V1.VehicleSpeed(), V2.VehicleSpeed();
