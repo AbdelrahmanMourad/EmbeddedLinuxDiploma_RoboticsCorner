@@ -7,10 +7,10 @@
     Requirements:
         Create "std::find" function with this signature:
             "template<class InputIterator, class T>"
-    
-        Input Iterator 
+
+        Input Iterator
             find (InputIterator first, InputIterator last, const T& val);
-    
+
         Cpp reference link: https://en.cppreference.com/w/cpp/algorithm/fin
 ___________________________________________________________________________________________________________*/
 
@@ -22,7 +22,11 @@ ________________________________________________________________________________
 /*  -------------------------------------------------------------------
                         Functions Prototype
     ------------------------------------------------------------------- */
-
+// namespace HelpingFunctions
+// {
+//     template <class InputIterator, class T>
+//     void(InputIterator first, InputIterator last, const T &val);
+// };
 
 /*  -------------------------------------------------------------------
                         Entry Point

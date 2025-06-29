@@ -68,18 +68,23 @@ private:
     IStrategy *ptr_Istrategy_;
 
 public:
-    Vehicle(IStrategy *Ptr_Istrategy) : ptr_Istrategy_{Ptr_Istrategy} 
+    Vehicle(IStrategy *Ptr_Istrategy) : ptr_Istrategy_{Ptr_Istrategy}
     {
-        if(dynamic_cast<StrategyBMW*>(ptr_Istrategy_))
+        if (dynamic_cast<StrategyBMW *>(ptr_Istrategy_))
         {
-            std::cout << " Called: BWM Vehicle.\n";
+            std::cout << "Constructor Called: Vehicle ==> BWM.\n";
         }
         else
         {
-            std::cout << " Called: Not BMW Vehicle.\n";
+            std::cout << "Constructor Called: Vehicle ==> MiniCooper.\n";
         }
     }
-    ~Vehicle() { std::cout << "Destructor Called: Vehicle.\n"; }
+    ~Vehicle()
+    {
+        delete ptr_Istrategy_;
+        ptr_Istrategy_ = nullptr;
+        std::cout << "Destructor Called: Vehicle... resource deallocated.\n";
+    }
     void VehicleSpeed() { ptr_Istrategy_->calculateSpeed(); }
 };
 
@@ -88,12 +93,15 @@ public:
     ------------------------------------------------------------------- */
 int main()
 {
-    StrategyBMW BMW1;
-    StrategyMini Mini1;
+    // StrategyBMW BMW1;
+    // StrategyMini Mini1;
 
-    Vehicle V1{&BMW1};
-    std::cout << "-------------------------------------------------------------------------------------" << std::endl;
-    Vehicle V2{&Mini1};
+    // Vehicle V1{&BMW1};
+    // Vehicle V2{&Mini1};
+    // std::cout << "-------------------------------------------------------------------------------------" << std::endl;
+
+    Vehicle V1{new StrategyBMW};
+    Vehicle V2{new StrategyMini};
 
     V1.VehicleSpeed(), V2.VehicleSpeed();
 
