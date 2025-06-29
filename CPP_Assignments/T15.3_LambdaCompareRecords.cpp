@@ -42,10 +42,7 @@ struct Record
     int power_level;  // Character's power level.
 
     // Method to print the data of the Record.
-    void Print_Data() const
-    {
-        std::cout << "Name: <" << this->name << ">\t, Power Level: <" << this->power_level << ">\n";
-    }
+    void Print_Data() const { std::cout << "Name: <" << this->name << ">\t, Power Level: <" << this->power_level << ">\n"; }
 };
 
 // Namespace for helper functions.
@@ -55,9 +52,7 @@ namespace HelpingFunc
     void DisplayVector(const std::vector<Record> &vec)
     {
         for (auto &obj : vec)
-        {
             obj.Print_Data(); // Call the Print_Data method for each Record.
-        }
     }
 };
 
