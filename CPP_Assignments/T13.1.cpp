@@ -10,10 +10,10 @@
 
     - Key Points:
         ○   Base Class (PageObject):
-            This class has three virtual methods: addItem(), removeItem(),
-            and deleteItem(), which provide a common interface for derived classes. It does not
-            have any pure virtual methods, so it is not an abstract class, and you can instantiate it
-            directly.
+            This class has three virtual methods: addItem(), removeItem(), and deleteItem(),
+            which provide a common interface for derived classes.
+            It does not have any pure virtual methods, so it is not an abstract class, and
+            you can instantiate it directly.
         ○   Derived Classes (Page and Copy):
             •   Page: This class overrides the addItem(), removeItem(), and deleteItem() methods
                 to handle actions related to individual pages. Since Page provides concrete
@@ -39,36 +39,45 @@
                     Included Libraries.
     ------------------------------------------------------------------- */
 #include <iostream>
+#include <vector>
 
 /*  -------------------------------------------------------------------
-                        Functions Prototype
+                        Declarations / Functions Prototype
     ------------------------------------------------------------------- */
-class signal_list_t /*40k*/
+// Base Class
+class PageObject
 {
-    int y = 1;
+public:
+    virtual void addItem() { std::cout << "PageObject::addItem()\n"; }
+    virtual void removeItem() { std::cout << "PageObject::removeItem()\n"; }
+    virtual void deleteItem() { std::cout << "PageObject::deleteItem()"; }
+    PageObject() { std::cout << "Constructor Called: PageObject.\n"; }
+    ~PageObject() { std::cout << "Destructor Called: PageObject.\n"; }
 };
-
-class Example
+// Derived Classed
+class Page : public PageObject
+{
+public:
+    void addItem() override {}
+    void removeItem() override {}
+    void deleteItem() override {}
+    Page() { std::cout << "Constructor Called: Page.\n"; }
+    ~Page() { std::cout << "Destructor Called: Page.\n"; }
+};
+class Copy : public PageObject
 {
 private:
-    const int x_;
-    signal_list_t &&ref_x;
+    std::vector<PageObject> v1;
 
 public:
-    // Example() : x_{10}, ref_x{signal_list_t ref_x2}{}
-    // Example() {}
-    Example(int x, signal_list_t &&ref) : x_{x}, ref_x{ref}{}
-    void print(void) { std::cout << "x_ = " << x_ << std::endl; }
+    Copy() { std::cout << "Constructor Called: Copy.\n"; }
+    ~Copy() { std::cout << "Destructor Called: Copy.\n"; }
 };
-
 /*  -------------------------------------------------------------------
                         Entry Point
     ------------------------------------------------------------------- */
 int main()
 {
-    // signal_list_t s1;
-    Example example1(5, signal_list_t s1);
-    example1.print();
 
     return 0;
 }
@@ -76,3 +85,29 @@ int main()
 /*  -------------------------------------------------------------------
                         Functions implementation
     ------------------------------------------------------------------- */
+// class signal_list_t /*40k*/
+// {
+//     int y = 1;
+// };
+
+// class Example
+// {
+// private:
+//     const int x_;
+//     signal_list_t &&ref_x;
+
+// public:
+//     // Example() : x_{10}, ref_x{signal_list_t ref_x2}{}
+//     // Example() {}
+//     Example(int x, signal_list_t &&ref) : x_{x}, ref_x{ref}{}
+//     void print(void) { std::cout << "x_ = " << x_ << std::endl; }
+// };
+
+// int main()
+// {
+//     // signal_list_t s1;
+//     Example example1(5, signal_list_t s1);
+//     example1.print();
+
+//     return 0;
+// }
