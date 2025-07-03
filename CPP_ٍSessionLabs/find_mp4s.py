@@ -58,6 +58,6 @@ def list_mp4_files(folder_path, output_file_path):
 
 # Example usage
 if __name__ == "__main__":
-    folder_to_search = r"F:\Movies"
-    output_path = r"F:\mp4_list.txt"
+    folder_to_search = r"F:\Serieses [TV-Radio-Religious] [M5]\TV_Serieses"
+    output_path = r"D:\- Filter - Downloads\Downloads\mp4_list.txt"
     list_mp4_files(folder_to_search, output_path)
