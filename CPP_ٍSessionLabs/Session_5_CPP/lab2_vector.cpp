@@ -229,3 +229,51 @@ int main()
 | A7: Yes, as long as they are copyable/movable.
 ================================================================================
 */
+/*
+================================================================================
+|   Interview Questions & Answers - std::vector
+|-------------------------------------------------------------------------------
+| Q1: What is the difference between vector and array?
+| A1: Array has fixed size at compile time; vector is dynamic and can grow/shrink at runtime.
+|
+| Q2: How does vector manage memory?
+| A2: Allocates memory on the heap and resizes automatically as elements are added/removed.
+|
+| Q3: What is the difference between size and capacity?
+| A3: Size is the number of elements; capacity is the allocated storage (may be larger than size).
+|
+| Q4: How do you remove all occurrences of a value?
+| A4: Use erase-remove idiom: v.erase(std::remove(v.begin(), v.end(), value), v.end());
+|
+| Q5: How do you sort a vector in descending order?
+| A5: std::sort(v.begin(), v.end(), [](int a, int b){ return a > b; });
+|
+| Q6: What happens if you access out-of-bounds index?
+| A6: v[i] is undefined behavior; v.at(i) throws std::out_of_range exception.
+|
+| Q7: Can you store custom objects in a vector?
+| A7: Yes, as long as they are copyable/movable.
+|
+| Q8: What is the difference between std::vector and std::array?
+| A8: std::vector is dynamic (size can change at runtime, heap-allocated), std::array is fixed-size (size known at compile time, stack-allocated by default).
+|
+| Q9: How do you dynamically allocate a std::vector?
+| A9: std::vector<int>* pv = new std::vector<int>(10); // rarely needed, prefer stack allocation.
+|
+| Q10: What is the erase-remove idiom in C++?
+| A10: A common pattern to remove elements by value from a container:
+|      v.erase(std::remove(v.begin(), v.end(), value), v.end());
+|
+| Q11: How do you iterate over a vector in C++?
+| A11: Use range-based for, index-based for, or iterator-based for loops.
+|
+| Q12: What is the difference between push_back() and emplace_back()?
+| A12: push_back() copies/moves an object into the vector; emplace_back() constructs the object in-place, avoiding unnecessary copies/moves.
+|
+| Q13: How do you pre-allocate memory for a vector?
+| A13: Use reserve(n) to allocate capacity without changing the size.
+|
+| Q14: What happens if you exceed the capacity of a vector?
+| A14: The vector automatically allocates more memory (usually doubles the capacity).
+================================================================================
+*/

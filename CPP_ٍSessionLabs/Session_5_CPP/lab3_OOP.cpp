@@ -9,6 +9,18 @@
         - Intro to OOP.
     -------------------------------------------------------------------
 */
+/*******************************************************************
+ * History of programming evolution:
+ *  1. Proceedural:
+ *      lines of codes executing one line by line like a basic script.
+ *  2. Functional:
+ *      code is organized by routines/subroutines (functions)
+ *      which are blocks of sequences of code that can be re-used.
+ *  3. OOP:
+ *      Everything is an object.
+ *
+ ******************************************************************
+ */
 /*  -------------------------------------------------------------------
                 Object Oriented Programming (OOP)
     -------------------------------------------------------------------
@@ -42,8 +54,6 @@
             - Accept functions.
             ****  and this is called Encapsulation, object has all it needs inside it as capsule  *****
 
-
-
     --------------------------------------------------------------------
     [MISRA Rule]:   When you find struct using functions... turn it into class
     --------------------------------------------------------------------
@@ -54,10 +64,6 @@
             {public, private, protected}
 
     --------------------------------------------------------------------
-
-
-
-
 */
 
 namespace HelpingFunctions
@@ -73,7 +79,6 @@ namespace HelpingFunctions
         std::cout << text << std::endl;
     }
 }
-
 struct Fruit
 {
     int weight;
@@ -127,7 +132,7 @@ int main()
 */
 
 /*  ______________________________________________
-    
+
     Cpp
     Linux
     QNX
