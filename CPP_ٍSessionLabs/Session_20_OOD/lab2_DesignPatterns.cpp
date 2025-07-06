@@ -32,7 +32,7 @@
             -   SRS
             -   SWS
         *   Design  (HLD, LLD)
-            -   Static : Class Diagram      ---------> {{"""OOP Design Patterns"""}}
+            -   Static  : Class Diagram      ---------> {{"""OOP Design Patterns"""}}
             -   Dynamic : Sequence Diagram
         *   Dev
         *   Testing

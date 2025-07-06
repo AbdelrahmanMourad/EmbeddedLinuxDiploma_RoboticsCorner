@@ -1,6 +1,6 @@
 #include <iostream>
 
-// Abstract Class - {{{Can't make object of it}}}
+// Abstract Class - {{{""""""Can't make object of it""""""}}}
 // [Abstract class: has at least one pure virtual function]
 // [Pure virtual function - Function with not implementation and Equals to zero]
 class Sound

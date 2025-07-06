@@ -1,9 +1,3 @@
-/*
-================================================================================
-|   C++ Move Semantics and Smart Pointers
-================================================================================
-*/
-
 /*  ================================================================================
                             Included Libraries
     ================================================================================ */
@@ -17,11 +11,11 @@
 class Processor
 {
 public:
-    Processor(std::string type) : type{type} { std::cout << "Processor constructor called \n"; }
-    void print_type() { std::cout << "Processor type: " << type << std::endl; }
+    Processor(std::string type) : type_{type} { std::cout << "Processor constructor called \n"; }
+    void print_type() { std::cout << "Processor type: " << type_ << std::endl; }
 
 private:
-    std::string type;
+    std::string type_;
 };
 
 class Computer

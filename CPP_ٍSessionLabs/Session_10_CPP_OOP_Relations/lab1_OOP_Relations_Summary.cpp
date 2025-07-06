@@ -1,5 +1,38 @@
 /*
 ================================================================================
+   C++ OOP - Study Summary
+-------------------------------------------------------------------------------
+    Programming Paradigm:
+        -   Procedural
+        -   Functional
+        -   OOP ---------------------> Non-Linear Thinking
+        -   Asynchronous
+
+    Encapsulation:
+        -   Every class/type has encapsulated his attributes and methods.
+        -   Class = Type (Data + Operations)
+            *   Data : data members {properiess , attributes}
+            *   Operations : Methods members {behaviors}
+        -   Each member is associated with an access level:
+            *   private     -
+            *   publbic     +
+            *   protected   #
+
+    Types of classes:
+        - Polymorphic classes 
+                = designed for extension 
+                    {shape , circle , triangle , exception , ...}
+        - Value classes 
+                = designed for storing values 
+                    {int , complex<double> , vector , stack , array , queue , ...}
+        - RAII (Resource Acquisition Is Initialization) classes 
+                = "Encapsulates a resource into a class (class manage the resource) => resource lifetime object lifetime"
+                    {thread , unique_ptr , ...}
+================================================================================
+*/
+
+/*
+================================================================================
 |   C++ Inheritance, Polymorphism, and Class Relationships - Study Summary
 |-------------------------------------------------------------------------------
 | Inheritance:
