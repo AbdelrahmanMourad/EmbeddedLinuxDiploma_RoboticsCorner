@@ -138,6 +138,29 @@ namespace DEMO
         if (wptr.expired())
             std::cout << "wptrr expired after shared_ptr deleted.\n\n\n";
     }
+
+    /*
+    ============================================================================================
+    |           🔍 Comparison: std::smart_ptr vs. Custom Smart Pointer                         |
+    |===========================================================================================|
+    | Feature                   | std::shared_ptr              | MySharedPtr                    |
+    |---------------------------|------------------------------|--------------------------------|
+    | Reference Counting        | Thread-safe (atomic ops)     | Manual (not thread-safe)       |
+    | Cycle Handling            | std::weak_ptr                | MyWeakPtr (basic support)      |
+    | Exception Safety          | make_shared (safe)           | No built-in exception safety   |
+    | Custom Deleter Support    | Yes                          | Not implemented                |
+    | Move Semantics            | Fully supported              | Not implemented                |
+    | Robust Interface          | Extensive utilities          | Minimal interface              |
+    | Allocator Support         | Yes                          | No                             |
+    | enable_shared_from_this   | Supported (shared_from_this) | Not available                  |
+    ============================================================================================|
+    | Notes:                                                                                    |
+    | - std:: versions are production-grade, safe, and robust.                                  |
+    | - My versions are great for learning internals and ownership.                             |
+    | - Prefer std::smart_ptr for real-world applications.                                      |
+    |===========================================================================================|
+    */
+
 };
 
 /*  ================================================================================
