@@ -58,26 +58,69 @@ public:
 class Page : public PageObject
 {
 public:
-    void addItem() override {}
-    void removeItem() override {}
-    void deleteItem() override {}
+    void addItem() override { std::cout << "Page::addItem() - Item added to Page.\n"; }
+    void removeItem() override { std::cout << "Page::removeItem() - Item removed from Page.\n"; }
+    void deleteItem() override { std::cout << "Page::deleteItem() - Item deleted from Page.\n"; }
     Page() { std::cout << "Constructor Called: Page.\n"; }
     ~Page() { std::cout << "Destructor Called: Page.\n"; }
 };
+// Derived Class: Copy (manages multiple PageObjects)
 class Copy : public PageObject
 {
 private:
-    std::vector<PageObject> v1;
+    std::vector<PageObject *> v1; // Store pointers for polymorphic behavior
 
 public:
+    void addItem() override;
+    void removeItem() override;
+    void deleteItem() override;
+    // For demonstration: show how many items are in the copy
+    void printCount() const { std::cout << "Copy contains " << v1.size() << " PageObject(s).\n"; }
     Copy() { std::cout << "Constructor Called: Copy.\n"; }
-    ~Copy() { std::cout << "Destructor Called: Copy.\n"; }
+    ~Copy()
+    {
+        std::cout << "Destructor Called: Copy.\n";
+        // Clean up all PageObject pointers
+        for (auto ptr : v1)
+            delete ptr;
+
+        v1.clear(); // *** Erase all the vectors elements ***
+    }
 };
+
 /*  -------------------------------------------------------------------
                         Entry Point
     ------------------------------------------------------------------- */
 int main()
 {
+    std::cout << "\n--- Creating PageObject and Page ---\n";
+    PageObject baseObj;
+    baseObj.addItem();
+    baseObj.removeItem();
+    baseObj.deleteItem();
+
+    std::cout << "\n--- Creating Page ---\n";
+    Page pageObj;
+    pageObj.addItem();
+    pageObj.removeItem();
+    pageObj.deleteItem();
+
+    std::cout << "\n--- Creating Copy and manipulating PageObjects ---\n";
+    Copy copyObj;
+    copyObj.addItem();
+    copyObj.addItem();
+    copyObj.printCount();
+    copyObj.removeItem();
+    copyObj.printCount();
+    copyObj.deleteItem();
+    copyObj.printCount();
+
+    std::cout << "\n--- Demonstrating polymorphism ---\n";
+    PageObject *polyPtr = new Page();
+    polyPtr->addItem();
+    polyPtr->removeItem();
+    polyPtr->deleteItem();
+    delete polyPtr;
 
     return 0;
 }
@@ -111,3 +154,22 @@ int main()
 
 //     return 0;
 // }
+
+/*========================================================================================================
+    Task(13.1):  Page object class - Solution & Methodology Summary
+==========================================================================================================
+| Methodology & Design:
+| - We use a base class (PageObject) with virtual methods for add, remove, and delete operations.
+| - Page is a derived class representing a single page, overriding the methods to provide specific messages.
+| - Copy is a derived class that manages a collection (vector) of PageObject items, simulating a "copy" of pages.
+| - Demonstrates inheritance, method overriding, and composition (Copy "has a" vector of PageObject).
+| - In main(), we create and manipulate Page, PageObject, and Copy objects, showing polymorphic behavior.
+| - This structure is extensible for more complex document/page management systems.
+========================================================================================================*/
+/*========================================================================================================
+| Summary:
+| - Demonstrates inheritance, method overriding, and composition.
+| - Shows how to manage collections of polymorphic objects (with pointers).
+| - Illustrates safe cleanup and polymorphic destruction.
+| - Use this structure as a foundation for more advanced document/page systems.
+========================================================================================================*/
