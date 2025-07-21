@@ -120,8 +120,15 @@ int main()
     lambda_noexcept(123);
 
 #if __cplusplus >= 201703L // C++17 or later
+    // Define a constexpr lambda function that takes an int x and returns x * 2.
+    // 'constexpr' means this lambda can be evaluated at compile time if possible.
     constexpr auto lambda_constexpr = [](int x) constexpr { return x * 2; };
+
+    // Use static_assert to check at compile time that lambda_constexpr(5) == 10.
+    // If this is not true, compilation will fail with the message "constexpr lambda works!"
     static_assert(lambda_constexpr(5) == 10, "constexpr lambda works!");
+
+    // Call the lambda at runtime with argument 7 and print the result (should print 14).
     std::cout << "constexpr lambda: " << lambda_constexpr(7) << std::endl;
 #endif
 
