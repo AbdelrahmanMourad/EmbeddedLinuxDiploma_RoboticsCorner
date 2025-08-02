@@ -28,9 +28,9 @@ std::mutex mutex_pen;
 void thread1()
 {
     mutex_board.lock(); // board
-    board.use();
+    // board.use();
     mutex_pen.lock(); // pen
-    pen.use();
+    // pen.use();
     mutex_board.unlock();
     mutex_pen.unlock();
 }
@@ -38,9 +38,11 @@ void thread1()
 void thread2()
 {
     mutex_pen.lock(); // pen
-    pen.use();
+    // pen.use();
     mutex_board.lock(); // board
-    board.use();
+    // board.use();
     mutex_board.unlock();
     mutex_pen.unlock();
 }
+
+
