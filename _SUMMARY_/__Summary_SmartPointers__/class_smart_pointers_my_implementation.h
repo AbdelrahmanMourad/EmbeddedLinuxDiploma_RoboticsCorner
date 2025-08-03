@@ -1,3 +1,5 @@
+#ifndef MYOFJG
+#define MYOFJG
 template <typename T>
 class my_unique_ptr
 {
@@ -12,3 +14,4 @@ public:
         raw_pointr = nullptr; // null the pointer
     }
 };
+#endif

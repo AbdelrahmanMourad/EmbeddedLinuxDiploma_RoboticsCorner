@@ -8,6 +8,8 @@
                                                 Included libraries
     =============================================================================================================   */
 #include "class_smart_pointers_my_implementation.h"
+#include "class_Account.h"
+#include "class_Player.h"
 #include "class_Person.h"
 #include <iostream>   // IO Stream.
 #include <memory>     // Smart pointers.
@@ -78,6 +80,7 @@ void Examples_SharedPointer_DrMustafaSaad::weak_ptr_main00_GuessTheOutput(void)
         -------------------------------------------------
     */
 }
+
 void Examples_SharedPointer_DrMustafaSaad::weak_ptr_main01_UsingWeakPtrs(void)
 {
     // Step(1): Create a shared pointer.
@@ -97,12 +100,15 @@ void Examples_SharedPointer_DrMustafaSaad::weak_ptr_main01_UsingWeakPtrs(void)
     // weak from weak
     std::weak_ptr<Department> d2 = std::weak_ptr<Department>(e->Department);
 }
+
 void Examples_SharedPointer_DrMustafaSaad::weak_ptr_main02_Lock_And_Expired(void)
 {
 }
+
 void Examples_SharedPointer_DrMustafaSaad::weak_ptr_main03_Concurrency_ADVANCED(void)
 {
 }
+
 void Examples_SharedPointer_DrMustafaSaad::weak_ptr_main04_Proper_Usage_Weak_Pointers(void)
 {
 }

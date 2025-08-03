@@ -44,37 +44,37 @@ void weak_ptr_main4()
 int main()
 {
     /*___________unique_ptr___________*/
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main00_Creation();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main01_CopyConstructor_vs_Moving();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main00_Creation();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main01_CopyConstructor_vs_Moving();
     Examples_UniquePointer_DrMustafaSaad::unique_ptr_main02_Addresses();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main03_PassToFunction();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main04_ReturnFromFunction();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main05_HelperFunction();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main06_PointerToArrayAndLeaks();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main07_PointerWithVectors();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main08_Release_Reset_MemoryLeaks();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main09_warning_MemoryLeaks();
-    Examples_UniquePointer_DrMustafaSaad::unique_ptr_main10_BehindTheSeen();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main03_PassToFunction();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main04_ReturnFromFunction();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main05_HelperFunction();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main06_PointerToArrayAndLeaks();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main07_PointerWithVectors();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main08_Release_Reset_MemoryLeaks();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main09_warning_MemoryLeaks();
+    // Examples_UniquePointer_DrMustafaSaad::unique_ptr_main10_BehindTheSeen();
 
-    Examples_UniquePointer_RoboticsCorner::unique_ptr_main1_Creation_using_new();               //// init by new, reset(), use_count()
-    Examples_UniquePointer_RoboticsCorner::unique_ptr_main2_Creation_using_make_unique();       //// init by std::make_shared<>(), init by copy constructor, init by assignment operator=
-    Examples_UniquePointer_RoboticsCorner::unique_ptr_main3_ptr2class();                        //// Ptr 2 user defined type/class.
-    Examples_UniquePointer_RoboticsCorner::unique_ptr_main4_ptr_vector_move_not_copy();         //// vector if shared pointers.
-    Examples_UniquePointer_RoboticsCorner::unique_ptr_main5_Creation_class_using_make_unique(); //// user defined classes.
+    // Examples_UniquePointer_RoboticsCorner::unique_ptr_main1_Creation_using_new();               //// init by new, reset(), use_count()
+    // Examples_UniquePointer_RoboticsCorner::unique_ptr_main2_Creation_using_make_unique();       //// init by std::make_shared<>(), init by copy constructor, init by assignment operator=
+    // Examples_UniquePointer_RoboticsCorner::unique_ptr_main3_ptr2class();                        //// Ptr 2 user defined type/class.
+    // Examples_UniquePointer_RoboticsCorner::unique_ptr_main4_ptr_vector_move_not_copy();         //// vector if shared pointers.
+    // Examples_UniquePointer_RoboticsCorner::unique_ptr_main5_Creation_class_using_make_unique(); //// user defined classes.
 
-    /*___________shared_ptr___________*/
-    Examples_SharedPointer_DrMustafaSaad::shared_ptr_main00_Creation();
-    Examples_SharedPointer_DrMustafaSaad::shared_ptr_main01_Shared_Count();
-    Examples_SharedPointer_DrMustafaSaad::shared_ptr_main02_Shared_with_Vectors();
-    Examples_SharedPointer_DrMustafaSaad::shared_ptr_main03_DownCasting_Shared_vs_Unique(); // ___CASTING___
-    Examples_SharedPointer_DrMustafaSaad::shared_ptr_main04_Concurrency_ADVANCED();         // Search.
-    Examples_SharedPointer_DrMustafaSaad::shared_ptr_main05_Misc();                         // Search.
-    Examples_SharedPointer_DrMustafaSaad::shared_ptr_main06_GuessTheOutput();               // Try.
+    // /*___________shared_ptr___________*/
+    // Examples_SharedPointer_DrMustafaSaad::shared_ptr_main00_Creation();
+    // Examples_SharedPointer_DrMustafaSaad::shared_ptr_main01_Shared_Count();
+    // Examples_SharedPointer_DrMustafaSaad::shared_ptr_main02_Shared_with_Vectors();
+    // Examples_SharedPointer_DrMustafaSaad::shared_ptr_main03_DownCasting_Shared_vs_Unique(); // ___CASTING___
+    // Examples_SharedPointer_DrMustafaSaad::shared_ptr_main04_Concurrency_ADVANCED();         // Search.
+    // Examples_SharedPointer_DrMustafaSaad::shared_ptr_main05_Misc();                         // Search.
+    // Examples_SharedPointer_DrMustafaSaad::shared_ptr_main06_GuessTheOutput();               // Try.
 
-    Examples_SharedPointer_RoboticsCorner::shared_ptr_main1(); // init by new, reset(), use_count()
-    Examples_SharedPointer_RoboticsCorner::shared_ptr_main2(); // init by std::make_shared<>(), init by copy constructor, init by assignment operator=
-    Examples_SharedPointer_RoboticsCorner::shared_ptr_main3(); // vector if shared pointers.
-    Examples_SharedPointer_RoboticsCorner::shared_ptr_main4(); // user defined classes.
+    // Examples_SharedPointer_RoboticsCorner::shared_ptr_main1(); // init by new, reset(), use_count()
+    // Examples_SharedPointer_RoboticsCorner::shared_ptr_main2(); // init by std::make_shared<>(), init by copy constructor, init by assignment operator=
+    // Examples_SharedPointer_RoboticsCorner::shared_ptr_main3(); // vector if shared pointers.
+    // Examples_SharedPointer_RoboticsCorner::shared_ptr_main4(); // user defined classes.
 
     /*___________weak_ptr___________*/
 

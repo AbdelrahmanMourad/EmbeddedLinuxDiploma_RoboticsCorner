@@ -36,7 +36,7 @@ public:
     }
     void Chewing()
     {
-        std::cout<<"Chewing.....\n";
+        std::cout << "Chewing.....\n";
     }
     ~Cow()
     {
@@ -59,14 +59,19 @@ public:
 
 /***************How To use virtual function / abstracted class ***********/
 #include <vector>
+
 void RunAllSounds(std::vector<Sound *> Sounds)
 {
     for (auto &Sound : Sounds)
     {
         Sound->MakeSound();
-        if(Cow *cow = dynamic_cast<Cow*>(Sound))    // Check that Ptr is not nullptr.
+        if (Cow *cow = dynamic_cast<Cow *>(Sound)) // Check that Ptr is not nullptr.
         {
-            cow -> Chewing();
+            cow->Chewing();
+        }
+        else if (Cat *cat = dynamic_cast<Cat *>(Sound))
+        {
+            // call cat specific method.
         }
     }
 }

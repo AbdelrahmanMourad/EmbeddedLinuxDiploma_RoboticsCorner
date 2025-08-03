@@ -10,6 +10,7 @@
 #include "class_smart_pointers_my_implementation.h"
 #include "class_Account.h"
 #include "class_Player.h"
+#include "class_Person.h"
 #include <iostream>   // IO Stream.
 #include <memory>     // Smart pointers.
 #include <vector>     // Vectors.
@@ -47,6 +48,14 @@ namespace Examples_UniquePointer_DrMustafaSaad
                                             unique_ptr
     =============================================================================================================   */
 
+class MyUNiquePtr
+{
+
+public:
+    
+    void operator=(MyUNiquePtr const &obj) = delete;
+};
+
 void Examples_UniquePointer_DrMustafaSaad::unique_ptr_main00_Creation(void)
 {
     /*  ----------------------------------------
@@ -57,7 +66,7 @@ void Examples_UniquePointer_DrMustafaSaad::unique_ptr_main00_Creation(void)
 
     // CE: conversion from int* to unique_ptr
     // Internally explicit constructor
-    // std::unique_ptr<int p1 = new int {20};
+    // std::unique_ptr<int> p1 = new int{20};
 
     std::cout << "*p1= " << *p1 << "\n\n";
 
@@ -73,9 +82,12 @@ void Examples_UniquePointer_DrMustafaSaad::unique_ptr_main01_CopyConstructor_vs_
    */
     std::unique_ptr<int> p2{new int{20}};
 
+    
+
     // CE: use of """deleted copy constructor""".
     // But we can """move p2 internals""" to p3.
     // Useful for function calls in some scenarios.
+    // std::unique_ptr<int> p3 {p2};
     std::unique_ptr<int> p3{std::move(p2)};
     // Now: DON'T use p2 any more. Another pointer p3 has the ownership.
 
