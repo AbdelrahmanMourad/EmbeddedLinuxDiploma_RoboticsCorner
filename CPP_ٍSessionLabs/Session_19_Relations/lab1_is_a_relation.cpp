@@ -134,13 +134,101 @@
 ================================================================================
 */
 
+<<<<<<< HEAD
 /*  ================================================================================
                                 Included Libraries
     ================================================================================    */
+=======
+/*
+========================================================================================================
+Polymorphism, Casting, and OOP Relationships in C++ - Summary & Interview Q&A
+========================================================================================================
+| Polymorphism:
+| - Enables using base class pointers/references to refer to derived class objects.
+| - Requires at least one virtual function in the base class.
+| - Allows dynamic dispatch (runtime binding) of overridden methods.
+|
+| Casting in C++:
+| 1. static_cast<T>(expr): Compile-time cast for related types (safe upcast, unchecked downcast).
+|    - Example: Base* b = new Derived(); Derived* d = static_cast<Derived*>(b);
+| 2. dynamic_cast<T>(expr): Runtime-checked cast for polymorphic types (base must have virtual function).
+|    - Example: Base* b = new Derived(); Derived* d = dynamic_cast<Derived*>(b); // d != nullptr if b is Derived
+| 3. reinterpret_cast<T>(expr): Bitwise cast, for unrelated types (dangerous, rarely used).
+|    - Example: int* p = reinterpret_cast<int*>(0x1234);
+| 4. const_cast<T>(expr): Adds/removes const/volatile qualifier.
+|    - Example: const int* p = ...; int* q = const_cast<int*>(p);
+| 5. C-style cast: (T)expr or T(expr). Tries static_cast, const_cast, reinterpret_cast in order.
+|    - Not recommended in modern C++.
+| 6. dynamic_pointer_cast<T>(shared_ptr<U>): Safe downcast for shared_ptr, returns nullptr if fails.
+|    - Example: std::shared_ptr<Base> b = ...; auto d = std::dynamic_pointer_cast<Derived>(b);
+| 7. static_pointer_cast<T>(shared_ptr<U>): Compile-time cast for shared_ptr.
+|    - Example: auto d = std::static_pointer_cast<Derived>(b);
+|
+| Common Interview Questions & Answers on Polymorphism and Casting:
+| 1. Q: What is polymorphism?
+|    A: The ability to treat objects of different derived types as objects of a common base type, enabling dynamic method dispatch.
+| 2. Q: What is a virtual function?
+|    A: A function declared with 'virtual' in the base class, allowing derived classes to override it for runtime polymorphism.
+| 3. Q: What is pure virtual function?
+|    A: A virtual function with '= 0', making the class abstract (cannot instantiate).
+| 4. Q: What is upcasting?
+|    A: Casting a derived class pointer/reference to a base class type (always safe).
+| 5. Q: What is downcasting?
+|    A: Casting a base class pointer/reference to a derived class type (safe only with dynamic_cast and polymorphic base).
+| 6. Q: When do you use dynamic_cast?
+|    A: When you need to safely downcast in a class hierarchy with virtual functions.
+| 7. Q: What happens if dynamic_cast fails?
+|    A: For pointers, returns nullptr; for references, throws std::bad_cast.
+| 8. Q: Why must the base class be polymorphic for dynamic_cast?
+|    A: RTTI (runtime type information) is only available for classes with at least one virtual function.
+| 9. Q: What is object slicing?
+|    A: When a derived object is assigned to a base object by value, losing the derived part.
+| 10. Q: What is the difference between static_cast and dynamic_cast?
+|     A: static_cast is compile-time and unchecked; dynamic_cast is runtime-checked and safe for downcasting.
+| 11. Q: Can you dynamic_cast with unique_ptr?
+|     A: No direct helper; use raw pointer and reconstruct unique_ptr if needed.
+| 12. Q: What is the diamond problem?
+|     A: Ambiguity from multiple inheritance; solved with virtual inheritance.
+| 13. Q: What is the difference between composition and aggregation?
+|     A: Composition: strong ownership (part destroyed with whole); Aggregation: weak ownership (part can outlive whole).
+| 14. Q: What is the purpose of a virtual destructor?
+|     A: Ensures proper cleanup of derived objects when deleting via base pointer.
+| 15. Q: What is RTTI?
+|     A: Run-Time Type Information, used for dynamic_cast and typeid.
+========================================================================================================
+| Example: All Cases of Casting
+--------------------------------------------------------------------------------------------------------
+class Base { public: virtual ~Base() {} };
+class Derived : public Base { public: void foo() {} };
+
+Base* b = new Derived();
+Derived* d1 = static_cast<Derived*>(b);   // Unsafe downcast, no check
+Derived* d2 = dynamic_cast<Derived*>(b);  // Safe downcast, d2 != nullptr if b is Derived
+Base* b2 = static_cast<Base*>(d2);        // Upcast, always safe
+
+const int* ci = new int(5);
+int* i = const_cast<int*>(ci);            // Remove constness
+
+int n = 42;
+void* vp = &n;
+int* ip = reinterpret_cast<int*>(vp);     // Bitwise cast
+
+// C-style cast (not recommended)
+Derived* d3 = (Derived*)b;
+
+// Smart pointer casting
+std::shared_ptr<Base> spb = std::make_shared<Derived>();
+std::shared_ptr<Derived> spd1 = std::dynamic_pointer_cast<Derived>(spb); // Safe
+std::shared_ptr<Derived> spd2 = std::static_pointer_cast<Derived>(spb);  // Unsafe, no check
+========================================================================================================
+*/
+
+>>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 #include <iostream>
 #include <vector>
 #include <string>
 
+<<<<<<< HEAD
 /*  ================================================================================
                                 Declarations / Prototypes
     ================================================================================    */
@@ -150,25 +238,38 @@
 1. "_______Is-a_______" Relationship Example: Inheritance
 ---------------------------------------------------------
 */
+=======
+// 1. "Is-a" Relationship Example: Inheritance
+>>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 class Super
 {
 public:
     Super() { std::cout << "Constructor Called: Super.\n"; }
-    void Method1() { std::cout << "SuperClass.Method1().\n"; }
+    virtual void Method1() { std::cout << "SuperClass.Method1().\n"; }
+    virtual void Method2() { std::cout << "SuperClass.Method1().\n"; }
+    ~Super() { std::cout << "Destructor Called: Super.\n"; }
+    // virtual ~Super() = 0;
 };
 
 class Sub : public Super
 {
 public:
     Sub() { std::cout << "Constructor Called: Sub.\n"; }
-    void Method2() { std::cout << "SubClass.Method2().\n"; }
+    void Method1() override { std::cout << "SubClass.Method1().\n"; }
+    void Method2() override { std::cout << "SubClass.Method2().\n"; }
+    ~Sub() { std::cout << "Destructor Called: Sub.\n"; }
+    // ~Sub() override { std::cout << "Destructor Called: Sub.\n"; }
 };
 
+<<<<<<< HEAD
 /*
 ----------------------------------------------------------
 2. "_______Has-a_______" Relationship Example: Composition  "تركيب"
 ----------------------------------------------------------
 */
+=======
+// 2. "Has-a" Relationship Example: Composition
+>>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 class Engine
 {
 public:
@@ -183,11 +284,15 @@ public:
     void Start() { engine.Start(); }
 };
 
+<<<<<<< HEAD
 /*
 ----------------------------------------------------------
 3. "_______Has-a_______" Relationship Example: Aggregation  "تجميع"
 ----------------------------------------------------------
 */
+=======
+// 3. "Has-a" Relationship Example: Aggregation
+>>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 class Player
 {
 public:
@@ -210,11 +315,15 @@ public:
     }
 };
 
+<<<<<<< HEAD
 /*
 ----------------------------------------------------------------------
 4. "_______Uses-a_______" Relationship Example: Association/Dependency
 ----------------------------------------------------------------------
 */
+=======
+// 4. "Uses-a" Relationship Example: Association/Dependency
+>>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 class Stethoscope
 {
 public:
@@ -227,11 +336,15 @@ public:
     void CheckPatient(Stethoscope &s) { s.Listen(); }
 };
 
+<<<<<<< HEAD
 /*
 -------------------------------------------------------------------
 5. "_______Part-of_______" Relationship: Composition vs Aggregation
 -------------------------------------------------------------------
 */
+=======
+// 5. "Part-of" Relationship: Composition vs Aggregation
+>>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 class Room
 {
 };
@@ -252,9 +365,12 @@ private:
     std::vector<Employee *> employees; // Aggregation: pointers, not ownership
 };
 
+<<<<<<< HEAD
 /*  ================================================================================
                                 Main - Entry point
     ================================================================================    */
+=======
+>>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 int main()
 {
     std::cout << "=== Is-a (Inheritance) Example ===\n";
@@ -294,9 +410,16 @@ int main()
     House house; // Room is part of House, destroyed with it
     Employee e1, e2;
     Department dept;
+<<<<<<< HEAD
     // Employees can exist independently of
 }
 
 /*  ================================================================================
                                 Functions/ Methods Implementations
     ================================================================================    */
+=======
+    // Employees can exist independently of the Department
+
+    return 0;
+}
+>>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce

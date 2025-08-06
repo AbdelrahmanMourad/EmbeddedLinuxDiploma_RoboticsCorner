@@ -1,6 +1,6 @@
 #include <iostream>
 
-// Abstract Class - {{{""""""Can't make object of it""""""}}}
+// Abstract Class - {{{Can't make object of it}}}
 // [Abstract class: has at least one pure virtual function]
 // [Pure virtual function - Function with not implementation and Equals to zero]
 class Sound
@@ -34,6 +34,10 @@ public:
     {
         std::cout << "Cow Sound\n";
     }
+    void Chewing()
+    {
+        std::cout << "Chewing.....\n";
+    }
     ~Cow()
     {
         std::cout << "destructor called in cow";
@@ -53,24 +57,35 @@ public:
     }
 };
 
+/***************How To use virtual function / abstracted class ***********/
+#include <vector>
+
+void RunAllSounds(std::vector<Sound *> Sounds)
+{
+    for (auto &Sound : Sounds)
+    {
+        Sound->MakeSound();
+        if (Cow *cow = dynamic_cast<Cow *>(Sound)) // Check that Ptr is not nullptr.
+        {
+            cow->Chewing();
+        }
+        else if (Cat *cat = dynamic_cast<Cat *>(Sound))
+        {
+            // call cat specific method.
+        }
+    }
+}
+
 int main()
 {
-    // Sound s;                 //  error - Abstract Class {can't make object form it.}
-    Sound *obj_sound = new Cow; // Base/Super Class Pointer can point to derived class object. (but not vise versa)
-    obj_sound->MakeSound();
+    Sound *obj_sound = new Cow; // Base/Super Class Pointer can point to derived class object. (but not vice versa)
+    Cow *cow_ = new Cow;
+    Cat *cat_ = new Cat;
 
-    /*******Heap***********/
-    Cat *cat = new Cat; // Pointer to derived class Cow.
-    cat->MakeSound();
-    obj_sound = cat;
-    obj_sound->MakeSound();
-    obj_sound->SoundVolume();
-    delete obj_sound, cat;
+    std::vector<Sound *> Sounds{obj_sound, cow_, cat_};
+    RunAllSounds(Sounds);
 
-    /*******Stack***********/
-    Cow cow;
-    Sound &sound = cow;
-    sound.MakeSound();
+    delete obj_sound, cat_, cow_;
 
     return 0;
 }

@@ -52,7 +52,7 @@
     ==================================================================================
 */
 
-class Sound
+class Animal
 {
 public:
     // Pure virtual function: forces derived classes to override this function.
@@ -65,10 +65,10 @@ public:
     }
 
     // Virtual destructor ensures proper destruction of derived class objects.
-    virtual ~Sound() = default;
+    virtual ~Animal() = default;
 };
 
-class Cow : public Sound
+class Cow : public Animal
 {
 public:
     void MakeSound() override
@@ -82,7 +82,7 @@ public:
     }
 };
 
-class Cat : public Sound
+class Cat : public Animal
 {
 public:
     // override keyword helps catch mismatches in function signature.
@@ -103,7 +103,8 @@ int main()
     // Sound s; // Error: cannot create object of abstract class type 'Sound'
 
     // Dynamic allocation using base class pointer pointing to a derived class object.
-    Sound *obj_sound = new Cow;
+    Animal *obj_sound = new Cow;
+    /***** NOTE: Base/Super class pointer can point to derived class object. But not vise versa. *****/
     obj_sound->MakeSound();  // Calls Cow's MakeSound() due to dynamic polymorphism.
 
     // More dynamic allocation example with another derived class.
@@ -122,7 +123,7 @@ int main()
 
     // Alternatively, using stack allocation with a reference.
     Cow cow;
-    Sound &sound = cow;  // Reference to a derived class object.
+    Animal &sound = cow;  // Reference to a derived class object.
     sound.MakeSound();   // Calls Cow's MakeSound().
 
     return 0;
