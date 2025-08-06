@@ -134,84 +134,131 @@
 ================================================================================
 */
 
+/*  ================================================================================
+                                Included Libraries
+    ================================================================================    */
 #include <iostream>
 #include <vector>
 #include <string>
 
-// 1. "Is-a" Relationship Example: Inheritance
-class Super {
+/*  ================================================================================
+                                Declarations / Prototypes
+    ================================================================================    */
+
+/*
+---------------------------------------------------------
+1. "_______Is-a_______" Relationship Example: Inheritance
+---------------------------------------------------------
+*/
+class Super
+{
 public:
     Super() { std::cout << "Constructor Called: Super.\n"; }
     void Method1() { std::cout << "SuperClass.Method1().\n"; }
 };
 
-class Sub : public Super {
+class Sub : public Super
+{
 public:
     Sub() { std::cout << "Constructor Called: Sub.\n"; }
     void Method2() { std::cout << "SubClass.Method2().\n"; }
 };
 
-// 2. "Has-a" Relationship Example: Composition
-class Engine {
+/*
+----------------------------------------------------------
+2. "_______Has-a_______" Relationship Example: Composition  "تركيب"
+----------------------------------------------------------
+*/
+class Engine
+{
 public:
     void Start() { std::cout << "Engine started.\n"; }
 };
 
-class Car {
+class Car
+{
 private:
     Engine engine; // Car has an Engine (composition)
 public:
     void Start() { engine.Start(); }
 };
 
-// 3. "Has-a" Relationship Example: Aggregation
-class Player {
+/*
+----------------------------------------------------------
+3. "_______Has-a_______" Relationship Example: Aggregation  "تجميع"
+----------------------------------------------------------
+*/
+class Player
+{
 public:
     std::string name;
-    Player(const std::string& n) : name(n) {}
+    Player(const std::string &n) : name(n) {}
 };
 
-class Team {
+class Team
+{
 private:
-    std::vector<Player*> players; // Team has Players (aggregation)
+    std::vector<Player *> players; // Team has Players (aggregation)
 public:
-    void AddPlayer(Player* p) { players.push_back(p); }
-    void ListPlayers() {
+    void AddPlayer(Player *p) { players.push_back(p); }
+    void ListPlayers()
+    {
         std::cout << "Team players: ";
-        for (auto p : players) std::cout << p->name << " ";
+        for (auto p : players)
+            std::cout << p->name << " ";
         std::cout << std::endl;
     }
 };
 
-// 4. "Uses-a" Relationship Example: Association/Dependency
-class Stethoscope {
+/*
+----------------------------------------------------------------------
+4. "_______Uses-a_______" Relationship Example: Association/Dependency
+----------------------------------------------------------------------
+*/
+class Stethoscope
+{
 public:
     void Listen() { std::cout << "Listening to heartbeat.\n"; }
 };
 
-class Doctor {
+class Doctor
+{
 public:
-    void CheckPatient(Stethoscope& s) { s.Listen(); }
+    void CheckPatient(Stethoscope &s) { s.Listen(); }
 };
 
-// 5. "Part-of" Relationship: Composition vs Aggregation
-class Room {};
+/*
+-------------------------------------------------------------------
+5. "_______Part-of_______" Relationship: Composition vs Aggregation
+-------------------------------------------------------------------
+*/
+class Room
+{
+};
 
-class House {
+class House
+{
 private:
     Room room; // Composition: Room is created/destroyed with House
 };
 
-class Employee {};
-
-class Department {
-private:
-    std::vector<Employee*> employees; // Aggregation: pointers, not ownership
+class Employee
+{
 };
 
-int main() {
+class Department
+{
+private:
+    std::vector<Employee *> employees; // Aggregation: pointers, not ownership
+};
+
+/*  ================================================================================
+                                Main - Entry point
+    ================================================================================    */
+int main()
+{
     std::cout << "=== Is-a (Inheritance) Example ===\n";
-    Super* ptr = new Super();
+    Super *ptr = new Super();
     ptr->Method1();
     // ptr->Method2(); // Error: Super has no Method2
 
@@ -222,8 +269,9 @@ int main() {
     // ptr->Method2(); // Error: Super pointer can't access Method2 directly
 
     // To access Method2, need to cast:
-    Sub* subPtr = dynamic_cast<Sub*>(ptr);
-    if (subPtr) subPtr->Method2();
+    Sub *subPtr = dynamic_cast<Sub *>(ptr);
+    if (subPtr)
+        subPtr->Method2();
     delete ptr;
 
     std::cout << "\n=== Has-a (Composition) Example ===\n";
@@ -248,3 +296,7 @@ int main() {
     Department dept;
     // Employees can exist independently of
 }
+
+/*  ================================================================================
+                                Functions/ Methods Implementations
+    ================================================================================    */
