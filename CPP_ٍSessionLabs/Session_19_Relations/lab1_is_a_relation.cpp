@@ -134,11 +134,6 @@
 ================================================================================
 */
 
-<<<<<<< HEAD
-/*  ================================================================================
-                                Included Libraries
-    ================================================================================    */
-=======
 /*
 ========================================================================================================
 Polymorphism, Casting, and OOP Relationships in C++ - Summary & Interview Q&A
@@ -223,12 +218,13 @@ std::shared_ptr<Derived> spd2 = std::static_pointer_cast<Derived>(spb);  // Unsa
 ========================================================================================================
 */
 
->>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
+/*  ================================================================================
+                                Included Libraries
+    ================================================================================    */
 #include <iostream>
 #include <vector>
 #include <string>
 
-<<<<<<< HEAD
 /*  ================================================================================
                                 Declarations / Prototypes
     ================================================================================    */
@@ -238,9 +234,7 @@ std::shared_ptr<Derived> spd2 = std::static_pointer_cast<Derived>(spb);  // Unsa
 1. "_______Is-a_______" Relationship Example: Inheritance
 ---------------------------------------------------------
 */
-=======
-// 1. "Is-a" Relationship Example: Inheritance
->>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
+
 class Super
 {
 public:
@@ -261,15 +255,12 @@ public:
     // ~Sub() override { std::cout << "Destructor Called: Sub.\n"; }
 };
 
-<<<<<<< HEAD
 /*
 ----------------------------------------------------------
 2. "_______Has-a_______" Relationship Example: Composition  "تركيب"
 ----------------------------------------------------------
 */
-=======
-// 2. "Has-a" Relationship Example: Composition
->>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
+
 class Engine
 {
 public:
@@ -284,15 +275,11 @@ public:
     void Start() { engine.Start(); }
 };
 
-<<<<<<< HEAD
 /*
 ----------------------------------------------------------
 3. "_______Has-a_______" Relationship Example: Aggregation  "تجميع"
 ----------------------------------------------------------
 */
-=======
-// 3. "Has-a" Relationship Example: Aggregation
->>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 class Player
 {
 public:
@@ -315,15 +302,12 @@ public:
     }
 };
 
-<<<<<<< HEAD
 /*
 ----------------------------------------------------------------------
 4. "_______Uses-a_______" Relationship Example: Association/Dependency
 ----------------------------------------------------------------------
 */
-=======
-// 4. "Uses-a" Relationship Example: Association/Dependency
->>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
+
 class Stethoscope
 {
 public:
@@ -336,15 +320,12 @@ public:
     void CheckPatient(Stethoscope &s) { s.Listen(); }
 };
 
-<<<<<<< HEAD
 /*
 -------------------------------------------------------------------
 5. "_______Part-of_______" Relationship: Composition vs Aggregation
 -------------------------------------------------------------------
 */
-=======
-// 5. "Part-of" Relationship: Composition vs Aggregation
->>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
+
 class Room
 {
 };
@@ -365,12 +346,9 @@ private:
     std::vector<Employee *> employees; // Aggregation: pointers, not ownership
 };
 
-<<<<<<< HEAD
 /*  ================================================================================
                                 Main - Entry point
     ================================================================================    */
-=======
->>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
 int main()
 {
     std::cout << "=== Is-a (Inheritance) Example ===\n";
@@ -410,16 +388,11 @@ int main()
     House house; // Room is part of House, destroyed with it
     Employee e1, e2;
     Department dept;
-<<<<<<< HEAD
-    // Employees can exist independently of
+    // Employees can exist independently of the Department
+
+    return 0;
 }
 
 /*  ================================================================================
                                 Functions/ Methods Implementations
     ================================================================================    */
-=======
-    // Employees can exist independently of the Department
-
-    return 0;
-}
->>>>>>> 8b12fb5968b47918e6e37560963d14945fa31fce
