@@ -1,15 +1,20 @@
 #!/bin/bash
 
 # Task Manager - Complete Implementation
-# File: task_manager.sh
-# Description: A bash-based task management system
+## **File:** ***task_manager.sh***
+### **Description:** *A bash-based task management system*
+
+---
 
 # Global variables
+```bash
 TASK_FILE="tasks.txt"
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 TASK_FILE="$SCRIPT_DIR/tasks.txt"
+```
 
 # Color codes for output
+```bash
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
@@ -17,6 +22,7 @@ BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 NC='\033[0m' # No Color
+```
 
 # Function to display colored output
 ```bash
