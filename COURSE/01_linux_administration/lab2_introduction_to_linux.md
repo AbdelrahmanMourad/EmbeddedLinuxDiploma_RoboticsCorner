@@ -28,7 +28,6 @@
 ---
 
 ## 📜 History of Linux
-
 ```mermaid
 timeline
     title Linux Timeline
@@ -79,18 +78,18 @@ Press **Q** to quit.
 
 ---
 
-## 🔄 cd Command Variants
+## 🔄 `cd` Command Variants
 
 | Command | Action               |
 |---------|----------------------|
-| cd ..   | Go up one directory  |
-| cd ~    | Go to home           |
-| cd /    | Go to root           |
-| cd -    | Previous directory   |
+| `cd` ..   | Go up one directory  |
+| `cd` ~    | Go to home           |
+| `cd` /    | Go to root           |
+| `cd` -    | Previous directory   |
 
 ---
 
-## 📜 ls Command Options
+## 📜 `ls` Command Options
 
 | Option | Description                       |
 |--------|-----------------------------------|
@@ -105,7 +104,9 @@ Press **Q** to quit.
 | --group-directories-first | Dirs before files |
 
 👉 Examples:
-```bash
+
+***bash($):***
+```bash\
 ls
 ls -l
 ls -la
@@ -117,7 +118,7 @@ ls -R
 
 ## 🌳 Linux Directory Structure
 
-```mermaid
+```ascii
 Root Directory Structure:
     /
     ├── bin:  
@@ -139,7 +140,6 @@ Root Directory Structure:
     ├── usr   
     ├── var   
     └── lost+found
-    
 ```
 
 **Key Notes:**
