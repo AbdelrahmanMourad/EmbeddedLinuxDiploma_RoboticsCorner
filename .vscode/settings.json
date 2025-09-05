@@ -1,4 +1,8 @@
 {
+    "[cpp]": {
+          "editor.defaultFormatter": "ms-vscode.cpptools"
+    },
+
     "files.associations": {
         "iostream": "cpp",
         "array": "cpp",
@@ -75,6 +79,6 @@
         "xstring": "cpp",
         "xtr1common": "cpp",
         "xtree": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp"   
     }
 }
