@@ -1,8 +1,6 @@
-
-
 /*
 ====================================================================
-=== COURSE/2_linux_administration/lab20_instroduction_to_linux.h ===
+=== COURSE/2_linux_administration/lab2_instroduction_to_linux.h ===
 ====================================================================
 */
 
