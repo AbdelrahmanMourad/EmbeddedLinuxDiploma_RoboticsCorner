@@ -51,4 +51,60 @@
 
 ![1760966663206](image/Summary/1760966663206.png)
 
+### GTest Assertion Macros
+
 ![1760966687323](image/Summary/1760966687323.png)
+
+![1760966798436](image/Summary/1760966798436.png)
+
+- When using `"EXPECT_TRUE(condition)"` the ***`test continue`*** *if the* **condition fails**.
+- When using `"ASSERT_TRUE(condition)"` the ***`test stops`*** *if the* **condition fails**.
+
+![1760967144050](image/Summary/1760967144050.png)
+
+- Note that: when using **`user-defined types`** make sure to ***overload these operators***.
+
+![1760967353206](image/Summary/1760967353206.png)
+
+![1760967364939](image/Summary/1760967364939.png)
+
+![1760967432260](image/Summary/1760967432260.png)
+
+- Predicates: are functions that takes 2 inputs, and `return bool`.
+
+![1760967636067](image/Summary/1760967636067.png)
+
+![1760967676260](image/Summary/1760967676260.png)
+
+![1760967715837](image/Summary/1760967715837.png)
+
+![1760967747007](image/Summary/1760967747007.png)
+
+![1760967761479](image/Summary/1760967761479.png)
+
+![1760967790594](image/Summary/1760967790594.png)
+
+![1760967846220](image/Summary/1760967846220.png)
+
+![1760967916360](image/Summary/1760967916360.png)
+
+![1760967927600](image/Summary/1760967927600.png)
+
+### Test Fixture
+
+![1760967943115](image/Summary/1760967943115.png)
+
+
+![1760967988544](image/Summary/1760967988544.png).![1760967998442](image/Summary/1760967998442.png)![1760968006097](image/Summary/1760968006097.png)
+
+![1760968096886](image/Summary/1760968096886.png)
+
+![1760968124070](image/Summary/1760968124070.png).![1760968141183](image/Summary/1760968141183.png)
+
+![1760968188665](image/Summary/1760968188665.png)
+
+![1760968211464](image/Summary/1760968211464.png)
+
+### Manipulating Test
+
+![1760968260277](image/Summary/1760968260277.png)
